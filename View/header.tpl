@@ -20,15 +20,11 @@
 				<div class="navbar navbar-inverse navbar-fixed-top">
 					<div class="navbar-inner">
 
-						<a class="brand" href="index.php?module=indexStock">Accueil</a>
+<!-- 						<a class="brand" href="index.php?module=indexStock">Accueil</a> -->
 							<ul class="nav" role="navigation">
-								<!--<li class="dropdown">
-											<a class="dropdown-toggle" data-toggle="dropdown" href="#">Mon Compte<b class="caret"></b></a>
-											<ul class="dropdown-menu" role="menu" >
-											  <li><a href="modifCompte.php">Modifier mes informations</a></li>
-											  <li><a href="supprCompte.php">Supprimer mon compte</a></li>
-											</ul>
-										</li>-->
+								<li class="dropdown">
+									<a class="dropdown-toggle" href="index.php?module=home">Accueil</a>
+								</li>
 								<li class="dropdown">
 									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Stocks <b class="caret"></b></a>
 									<ul class="dropdown-menu" role="menu" >

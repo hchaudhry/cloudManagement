@@ -9,11 +9,16 @@ $(document).ready(function(){
 		$(this).css('cursor','pointer');
 	});
 
-	$('a.btn').click(function() {
+	$('.delete-line').click(function() {
 		if (confirm("Êtes-vous sûr de supprimer ce produit?")) {
         	window.location = 'index.php?module=deleteProduct&id='+ $(this).parents().find('input').val();
     	}else{
     		return false;	
     	}
 	});
+	
+	var url = window.location;
+	$('ul.nav a').filter(function() {
+	    return this.href == url;
+	}).parents().addClass('active');
 });

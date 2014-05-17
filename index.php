@@ -32,6 +32,11 @@ if(empty($_GET) OR empty($_GET['module'])){
 }
 else{
 	switch($_GET['module']){
+		
+		case 'home':
+			$controller = Controller_Stock::getInstance('Stock');
+			$controller->getAllProduct();
+		break;
 	
 		case 'tableau':
 		

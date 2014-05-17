@@ -68,9 +68,9 @@
                     <label class="control-label">Code Postal</label>
                     <div class="controls">
                         <?php if(empty($client['cp'])){ 
-                                echo "<input id='code-postal' name='code-postal' type='text' placeholder='Code Postal' class='input-xlarge'>";
+                                echo "<input id='code-postal' name='code-postal' type='text' placeholder='12345' class='input-xlarge'>";
                             }else{
-                                echo "<input id='code-postal' name='code-postal' type='text' placeholder='Code Postal' class='input-xlarge' value=".$client['cp'].">";
+                                echo "<input id='code-postal' name='code-postal' type='text' placeholder='12345' class='input-xlarge' value=".$client['cp'].">";
                             }
                         ?>
                         <p class="help-block"></p>
@@ -81,9 +81,9 @@
                     <label class="control-label">Téléphone</label>
                     <div class="controls">
                         <?php if(empty($client['phone'])){ 
-                                echo "<input id='telephone' name='telephone' type='text' placeholder='Téléphone' class='input-xlarge'>";
+                                echo "<input id='telephone' name='telephone' type='text' placeholder='0123456789' class='input-xlarge'>";
                             }else{
-                                echo "<input id='telephone' name='telephone' type='text' placeholder='Téléphone' class='input-xlarge' value=".$client['phone'].">";
+                                echo "<input id='telephone' name='telephone' type='text' placeholder='0123456789' class='input-xlarge' value=".$client['phone'].">";
                             }
                         ?>
                         <p class="help-block"></p>
@@ -94,9 +94,9 @@
                     <label class="control-label">Email</label>
                     <div class="controls">
                         <?php if(empty($client['email'])){ 
-                                echo "<input id='email' name='email' type='text' placeholder='Email' class='input-xlarge'>";
+                                echo "<input id='email' name='email' type='text' placeholder='exemple@mail.com' class='input-xlarge'>";
                             }else{
-                                echo "<input id='email' name='email' type='text' placeholder='Email' class='input-xlarge' value=".$client['email'].">";
+                                echo "<input id='email' name='email' type='text' placeholder='exemple@mail.com' class='input-xlarge' value=".$client['email'].">";
                             }
                         ?>
                         <p class="help-block"></p>

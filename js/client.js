@@ -8,7 +8,7 @@ $(document).ready(function(){
 		$(this).css('cursor','pointer');
 	});
 
-	$('a.delete-client').click(function() {
+	$('.delete-client').click(function() {
 		if (confirm("Êtes-vous sûr de supprimer ce client?")) {
         	window.location = 'index.php?module=deleteClient&id='+ $(this).parents().find('input').val();
     	}else{
