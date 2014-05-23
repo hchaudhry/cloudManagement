@@ -14,14 +14,9 @@ class Controller_Mail extends Controller_Template{
 		
 		$products = $this->selfModel->getQuantityEqualLimit();
 		
-		if (isset($_SESSION)) { 
-			$login = $_SESSION['login'];
-			$mdp = $_SESSION['mdp'];
-		}
-		$user = new Model_Users();
-		$user = $user->getAllUserInfo($login, $mdp);
-		
-		$to = $user['email'];
+		$usersMails = new Model_Users();
+		$usersMails = $usersMails->getMailOfAllUsersInfos();
+	
 		$subject = 'Cloud Management';
 		$messages;
 		$message = '';
@@ -34,12 +29,9 @@ class Controller_Mail extends Controller_Template{
 		}
 		$messages = $message;
 		
-		$sentmail = mail($to, $subject, $message, $headers);
-		
-		if($sentmail){
-			echo "Email Has Been Sent .";
-		}else {
-			echo "Cannot Send Email ";
+		foreach ($usersMails as $oneMail) {
+			echo $oneMail['email'];
+			$sentmail = mail($oneMail['email'], $subject, $message, $headers);
 		}
 	}
 }

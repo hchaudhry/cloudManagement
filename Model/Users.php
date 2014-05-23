@@ -20,6 +20,10 @@ class Model_Users extends Model_Template{
 		$sql = 'SELECT *
 				FROM user'; 
 		$this->selectAll = Controller_Template::$db->prepare($sql);
+		
+		$sql = 'SELECT email
+				FROM user';
+		$this->selectAllMail = Controller_Template::$db->prepare($sql);
 	}
 
 	public function getByLoginEtMotDePass($login,$mdp){
@@ -34,9 +38,9 @@ class Model_Users extends Model_Template{
 		}
 	}
 	
-	public function getAllUserInfo($login, $mpd){
-		$this->selectByLoginEtMdp->execute(array($login, $mpd));
-		$tab = $this->selectByLoginEtMdp->fetch();
+	public function getMailOfAllUsersInfos(){
+		$this->selectAllMail->execute();
+		$tab = $this->selectAllMail->fetchAll();
 		
 		if(empty($tab)){
 			return null;
@@ -45,4 +49,6 @@ class Model_Users extends Model_Template{
 			return $tab;
 		}
 	}
+	
+	
 }

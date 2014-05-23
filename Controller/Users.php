@@ -47,12 +47,7 @@ class Controller_Users extends Controller_Template{
 				$_SESSION['login']=$login;
 				$_SESSION['mdp']= $mdp;
 				
-				//On affiche la page d'accueil
-//	 			require 'View/header.tpl';
-// 				require 'View/index/index.tpl';
-// 				require 'View/footer.tpl';
 				header('Location: index.php?module=indexStock');
-// 				exit;
 			} else {
 				//On réaffiche le formulaire de saisie
 				require 'View/head_boots.tpl';
