@@ -1,4 +1,5 @@
 <?php
+session_start();
 /*
  * Ce fichier sert à lire la requête envoyée par un client (l'URL donc), et instancier les classes Contrôleur correspondantes
  * De ce fait, il faut vérifier les valeurs passées dans l'URL (variable $_GET en PHP) et s'assurer qu'elles sont bien écrites avant de réaliser les instanciations.
@@ -91,6 +92,11 @@ else{
 			$controller = Controller_Stock::getInstance('Stock');
 			$controller->deleteProduct($_GET['id']);
 		break;
+		
+		case 'quantityEqualLimit':
+			$controller = Controller_Stock::getInstance('Stock');
+			$controller->getQuantityEqualLimit();
+		break;
 
 		// Cleint
 		case 'listeClient':
@@ -123,6 +129,12 @@ else{
 		case 'deleteClient':
 			$controller = Controller_Client::getInstance('Client');
 			$controller->deleteClient($_GET['id']);
+		break;
+		
+		//Mail
+		case 'sendMail':
+			$mail = Controller_Mail::getInstance('Mail');
+			$mail->sendMail();
 		break;
 		
 		case 'station':

@@ -70,7 +70,14 @@ class Controller_Stock extends Controller_Template{
 		$productToDelete = $this->selfModel->deleteProduct($id);
 
 		header('Location: index.php?module=indexStock');
-	}	
+	}
+
+	public function getQuantityEqualLimit(){
+		$title = "Cloud Management";
+		$stock = $this->selfModel->getQuantityEqualLimit();
+		
+		return var_dump($stock);
+	}
 	
 	
 }

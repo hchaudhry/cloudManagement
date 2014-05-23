@@ -46,12 +46,13 @@ class Controller_Users extends Controller_Template{
 				//sauvegarde des identifiants
 				$_SESSION['login']=$login;
 				$_SESSION['mdp']= $mdp;
-						
+				
 				//On affiche la page d'accueil
-				// require 'View/header.tpl';
-				// require 'View/index/index.tpl';
-				// require 'View/footer.tpl';
+//	 			require 'View/header.tpl';
+// 				require 'View/index/index.tpl';
+// 				require 'View/footer.tpl';
 				header('Location: index.php?module=indexStock');
+// 				exit;
 			} else {
 				//On réaffiche le formulaire de saisie
 				require 'View/head_boots.tpl';
@@ -63,6 +64,11 @@ class Controller_Users extends Controller_Template{
 			require 'View/Users/connexion.tpl';
 			require 'View/foot_boots.tpl';
 		}
+	}
+	
+	public function getUserInfos($login, $mdp){
+		$userInfos = $this->selfModel->getByLoginEtMotDePass($login,$mdp);
+		return $userInfos;
 	}
 }
 

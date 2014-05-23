@@ -19,6 +19,9 @@ class Model_Product extends Model_Template{
 
 		$sql = 'DELETE FROM product WHERE id = ?';
 		$this->deleteProduct = Controller_Template::$db->prepare($sql);
+		
+		$sql = 'SELECT id, reference, name FROM product WHERE quantity = seuil';
+		$this->getQuantityEqualLimit = Controller_Template::$db->prepare($sql);
 	}
 
 	public function addProduct($reference, $nom, $commentaire, $quantite, $seuil){
@@ -62,6 +65,18 @@ class Model_Product extends Model_Template{
 
 	public function deleteProduct($id){
 		$this->deleteProduct->execute(array($id));
+	}
+	
+	public function getQuantityEqualLimit() {
+		$this->getQuantityEqualLimit->execute();
+		$tab = $this->getQuantityEqualLimit->fetchAll();
+		
+		if(empty($tab)){
+			return null;
+		}
+		else{
+			return $tab;
+		}
 	}
 
 }

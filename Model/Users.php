@@ -1,8 +1,4 @@
 <?php
-/*
-	La classe modèle pour les livres. 
-	Le constructeur permet de préparer trois requêtes de sélection de livres. Deux nouvelles propriétés sont définies par rapport à la classe Model/Template ; "selectByAuthor" et "selectByCategory". De la même manière, on retrouve plus loin les méthodes pour exécuter et récupérer les résultats de ces requêtes.
-*/
 class Model_Users extends Model_Template{
 
 	protected $selectByLoginEtMdp;
@@ -35,6 +31,18 @@ class Model_Users extends Model_Template{
 		}
 		else{
 			return $tab[0];
+		}
+	}
+	
+	public function getAllUserInfo($login, $mpd){
+		$this->selectByLoginEtMdp->execute(array($login, $mpd));
+		$tab = $this->selectByLoginEtMdp->fetch();
+		
+		if(empty($tab)){
+			return null;
+		}
+		else{
+			return $tab;
 		}
 	}
 }

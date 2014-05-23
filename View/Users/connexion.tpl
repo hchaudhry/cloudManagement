@@ -12,7 +12,7 @@
 	</head>
 	<body>
 			
-			<?php session_start(); ?>
+		<!-- <?php session_start(); ?> -->	
 			<div class="span6 offset5">
 				<img src="./img/logo.png"  height="352" width="470"/>
 				<form class="form-horizontal" action="index.php?module=connexion" method="POST">
