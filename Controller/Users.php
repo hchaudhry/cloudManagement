@@ -65,5 +65,59 @@ class Controller_Users extends Controller_Template{
 		$userInfos = $this->selfModel->getByLoginEtMotDePass($login,$mdp);
 		return $userInfos;
 	}
+	
+	public function getUserById($id){
+		$title = "Cloud Management";
+		
+		$user = $this->selfModel->getUserById($id);
+		
+		require 'View/header.tpl';
+		require 'View/Users/addUser.tpl';
+		require 'View/footer.tpl';
+	}
+	
+	public function ajoutUser(){
+		$title = "Cloud Management";	
+		require 'View/header.tpl';
+		require 'View/Users/addUser.tpl';
+		require 'View/footer.tpl';
+	}
+	
+	public function addUser($lastname, $firstname, $login, $email, $motDePasse){
+		$title = "Cloud Management";
+		
+		$user = $this->selfModel->addUser($lastname, $firstname, $login, $email, $motDePasse);
+		
+		header('Location: index.php?module=listUsers');
+	}
+	
+	public function listUsers(){
+		$title = utf8_decode("Cloud Management");
+		
+		$allUsers = $this->selfModel->getAllUsersInfos();
+	
+		require 'View/header.tpl';
+		require 'View/Users/listUsers.tpl';
+		require 'View/footer.tpl';
+	}
+	
+	public function updateUser($id, $lastname, $firstname, $login, $email, $password){
+		$title = "Cloud Management";
+		
+		$updateUser = $this->selfModel->updateUser($id, $lastname, $firstname, $login, $email, $password);
+		
+		$user = $this->selfModel->getUserById($id);
+
+		require 'View/header.tpl';
+		require 'View/Users/addUser.tpl';
+		require 'View/footer.tpl';
+	}
+	
+	public function deleteUser($id){
+		$title = "Cloud Management";
+		$userToDelete = $this->selfModel->deleteUser($id);
+	
+		header('Location: index.php?module=listUsers');
+	}
 }
 

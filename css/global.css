@@ -62,7 +62,7 @@
 	#productAdd{
 				margin: auto;
 	}
-	#productTable, #clientTable{
+	#productTable, #clientTable, #usersTable{
 				margin-left: 10px;
 				width: 98%;
 				margin-top: 20px;

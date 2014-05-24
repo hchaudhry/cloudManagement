@@ -11,7 +11,8 @@
 		<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js "></script>
 		<script type="text/javascript" src="js/product.js "></script>
-		<script type="text/javascript" src="js/client.js "></script>		
+		<script type="text/javascript" src="js/client.js "></script>
+		<script type="text/javascript" src="js/user.js "></script>		
 		<title><?php echo $title; ?></title>
 	</head>
 	<body>
@@ -49,8 +50,8 @@
 									<li class="dropdown">
 									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Utilisateurs <b class="caret"></b></a>
 									<ul class="dropdown-menu" role="menu" >
-									  <li><a href="ajoutUtilisateurs.php">Ajout des utilisateurs</a></li>
-									  <li><a href="<?php echo ROOT_URL; ?>?module=users">Liste des utilisateurs</a></li>
+									  <li><a href="index.php?module=ajoutUser">Ajout des utilisateurs</a></li>
+									  <li><a href="index.php?module=listUsers">Liste des utilisateurs</a></li>
 									</ul>
 								</li>
 								

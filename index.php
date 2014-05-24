@@ -54,6 +54,35 @@ else{
 			$controller->connexion($login, $mdp);
 		break;
 		
+		case 'addUser':
+			$controller = Controller_Users::getInstance('Users');
+			if(empty($_POST['id'])){
+				$controller->addUser($_POST['lastname'], $_POST['firstname'], $_POST['login'], $_POST['email'], $_POST['password']);
+			}else{
+				$controller->updateUser($_POST['id'], $_POST['lastname'], $_POST['firstname'], $_POST['login'], $_POST['email'], $_POST['password']);
+			}
+		break;
+		
+		case 'ajoutUser':
+			$controller = Controller_Users::getInstance('Users');
+			$controller->ajoutUser();
+		break;
+		
+		case 'listUsers':
+			$controller = Controller_Users::getInstance('Users');
+			$controller->listUsers();
+		break;
+		
+		case 'getUser':
+			$controller = Controller_Users::getInstance('Users');
+			$controller->getUserById($_GET['id']);
+		break;
+		
+		case 'deleteUser':
+			$controller = Controller_Users::getInstance('Users');
+			$controller->deleteUser($_GET['id']);
+		break;
+			
 		case 'deconnexion':
 			session_unset();
 			$controller = Controller_Index::getInstance('Index'); //fichiers php
