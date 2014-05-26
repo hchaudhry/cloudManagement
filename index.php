@@ -20,7 +20,7 @@ spl_autoload_register('generic_autoload');
 
 
 // Instanciation de la connexion à la BDD
-Controller_Template::$db = new MyPDO('mysql:host=localhost;dbname=gestionstock', 'root', 'demo');
+Controller_Template::$db = new MyPDO('mysql:host=localhost;dbname=gestionstock', 'root', '');
 
 
 // GESTION UTILISATEUR
@@ -159,6 +159,39 @@ else{
 			$controller = Controller_Client::getInstance('Client');
 			$controller->deleteClient($_GET['id']);
 		break;
+		
+		//Fournisseur
+		
+		case 'listeSupplier':
+			$controller = Controller_Supplier::getInstance('Supplier');
+			$controller->getAllSupplier();
+			break;
+		
+		case 'ajouteFournisseur':
+			$controller = Controller_Supplier::getInstance('Supplier');
+			$controller->ajouteFournisseur();
+			break;
+		
+		case 'addSupplier':
+			$controller = Controller_Supplier::getInstance('Supplier');
+			if(empty($_POST['id'])){
+				$controller->addSupplier($_POST['nom'], $_POST['societe'], $_POST['adresse'], $_POST['ville'], $_POST['code-postal'], $_POST['telephone'], $_POST['email']);
+			}else{
+				// modification d'un fournisseur
+				$controller = Controller_Supplier::getInstance('Supplier');
+				$controller->updateSupplier($_POST['id'], $_POST['nom'], $_POST['societe'], $_POST['adresse'], $_POST['ville'], $_POST['code-postal'], $_POST['telephone'], $_POST['email']);
+			}
+			break;
+		
+		case 'getSupplier':
+			$controller = Controller_Supplier::getInstance('Supplier');
+			$controller->getSupplier($_GET['id']);
+			break;
+		
+		case 'deleteSupplier':
+			$controller = Controller_Supplier::getInstance('Supplier');
+			$controller->deleteSupplier($_GET['id']);
+			break;
 		
 		//Mail
 		case 'sendMail':

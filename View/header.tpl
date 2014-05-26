@@ -12,7 +12,8 @@
 		<script type="text/javascript" src="js/bootstrap.min.js "></script>
 		<script type="text/javascript" src="js/product.js "></script>
 		<script type="text/javascript" src="js/client.js "></script>
-		<script type="text/javascript" src="js/user.js "></script>		
+		<script type="text/javascript" src="js/user.js "></script>	
+		<script type="text/javascript" src="js/supplier.js "></script>		
 		<title><?php echo $title; ?></title>
 	</head>
 	<body>
@@ -36,8 +37,8 @@
 								<li class="dropdown">
 									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Fournisseurs <b class="caret"></b></a>
 									<ul class="dropdown-menu" role="menu" >
-									  <li><a href="ajoutFournisseurs.php">Ajout des fournisseurs</a></li>
-									  <li><a href="<?php echo ROOT_URL; ?>?module=fournisseurs">Liste des Fournisseurs</a></li>
+									  <li><a href="index.php?module=ajouteFournisseur">Ajout des fournisseurs</a></li>
+									  <li><a href="index.php?module=listeSupplier">Liste des Fournisseurs</a></li>
 									</ul>
 								</li>
 								<li class="dropdown">
