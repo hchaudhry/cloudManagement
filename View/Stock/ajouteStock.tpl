@@ -60,6 +60,17 @@
 				?>
 			</tr>
 			<tr>
+				<td><label class="control-label" for="seuilactif">Seuil d'alerte actif
+						<?php if(empty($stock['seuil_active'])){ 
+				 				echo "<input type='checkbox' id='seuilactif' name='seuilactif' value='1'>";
+							}else{
+								echo '<input type="checkbox" id="seuilactif" name="seuilactif" checked value="1">';
+							}
+						?>
+					</label>
+				</td>
+			</tr>
+			<tr>
 				<td><label class="control-label" for="client">Client :</label></td>
 				<td><SELECT name="client">
 					<option value="fourni1"> client 1 </option>

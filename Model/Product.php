@@ -4,7 +4,7 @@ class Model_Product extends Model_Template{
 
 	public function __construct(){
 		parent::__construct();
-		$sql = 'INSERT INTO product (reference, name, description, quantity, seuil) VALUES (?, ?, ?, ?, ?)';
+		$sql = 'INSERT INTO product (reference, name, description, quantity, seuil, seuil_active) VALUES (?, ?, ?, ?, ?, ?)';
 		$this->add = Controller_Template::$db->prepare($sql);
 
 		$sql = 'SELECT * FROM product'; 
@@ -13,19 +13,19 @@ class Model_Product extends Model_Template{
 		$sql = 'SELECT * FROM product WHERE id = ?';
 		$this->getProduct = Controller_Template::$db->prepare($sql);
 
-		$sql = 'UPDATE product SET reference = :reference, name = :nom, description = :commentaire, quantity = :quantite, seuil = :seuil
+		$sql = 'UPDATE product SET reference = :reference, name = :nom, description = :commentaire, quantity = :quantite, seuil = :seuil, seuil_active = :seuil_active
 				WHERE id = :id';
 		$this->updateProduct = Controller_Template::$db->prepare($sql);
 
 		$sql = 'DELETE FROM product WHERE id = ?';
 		$this->deleteProduct = Controller_Template::$db->prepare($sql);
 		
-		$sql = 'SELECT id, reference, name FROM product WHERE quantity = seuil';
+		$sql = 'SELECT id, reference, name FROM product WHERE quantity = seuil AND seuil_active = 1';
 		$this->getQuantityEqualLimit = Controller_Template::$db->prepare($sql);
 	}
 
-	public function addProduct($reference, $nom, $commentaire, $quantite, $seuil){
-		$this->add->execute(array($reference, $nom, $commentaire, $quantite, $seuil));
+	public function addProduct($reference, $nom, $commentaire, $quantite, $seuil, $seuilactif){
+		$this->add->execute(array($reference, $nom, $commentaire, $quantite, $seuil, $seuilactif));
 	}
 
 	public function getAllProduct(){
@@ -52,14 +52,15 @@ class Model_Product extends Model_Template{
 		}
 	}
 
-	public function updateProduct($id, $reference, $nom, $commentaire, $quantite, $seuil){
+	public function updateProduct($id, $reference, $nom, $commentaire, $quantite, $seuil, $seuilactif){
 		$this->updateProduct->execute(array(
 										'id' => $id,
 										'reference' => $reference,
 										'nom' => $nom,
 										'commentaire' => $commentaire,
 										'quantite' => $quantite,
-										'seuil' => $seuil
+										'seuil' => $seuil,
+										'seuil_active' => $seuilactif
 									));
 	}
 
@@ -80,6 +81,4 @@ class Model_Product extends Model_Template{
 	}
 
 }
-
-
 ?>
