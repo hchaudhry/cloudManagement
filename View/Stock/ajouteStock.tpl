@@ -52,10 +52,10 @@
 			</tr>
 			<tr>
 				<td><label class="control-label" for="seuil">Seuil d'alerte <buttton id="seuilInfo" class='btn btn-mini' rel="popover" data-content="Lorsque la quantité d'un produit en stock atteint le seuil définis, un email d'alerte est envoyé" data-original-title="Seuil d'alerte" </buttton><i class='icon-question-sign'></label></td>
-				<?php if(empty($stock['seuil'])){ 
+				<?php if(empty($stock['seuil_value'])){ 
 				 		echo "<td><input type=text name='seuil'></i></a></td>";
 					}else{
-						echo "<td><input type=text name='seuil' value=".$stock['seuil']."></td>";
+						echo "<td><input type=text name='seuil' value=".$stock['seuil_value']."></td>";
 					}
 				?>
 			</tr>

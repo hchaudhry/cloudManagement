@@ -51,9 +51,9 @@ class Controller_Stock extends Controller_Template{
 
 		$stock = $this->selfModel->getProduct($id);
 
-// 		require 'View/header.tpl';
-// 		require 'View/Stock/ajouteStock.tpl';
-// 		require 'View/footer.tpl';
+		require 'View/header.tpl';
+		require 'View/Stock/ajouteStock.tpl';
+		require 'View/footer.tpl';
 	}
 
 	public function getProduct($id){
