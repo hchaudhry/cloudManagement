@@ -106,14 +106,14 @@ else{
 				if (!isset($_POST['seuilactif'])) {
 					$_POST['seuilactif'] = 0;
 				}
-				$controller->addProduct($_POST['ref'], $_POST['nom'], $_POST['commentaires'], $_POST['qte'], $_POST['seuil'], $_POST['seuilactif']);
+				$controller->addProduct($_POST['ref'], $_POST['nom'], $_POST['commentaires'], $_POST['qte'], $_POST['prix'], $_POST['seuil'], $_POST['seuilactif']);
 			}else{
 				// modification d'un produit
 				$controller = Controller_Stock::getInstance('Stock');
 				if (!isset($_POST['seuilactif'])) {
 					$_POST['seuilactif'] = 0;
 				}
-				$controller->updateProduct($_POST['id'], $_POST['ref'], $_POST['nom'], $_POST['commentaires'], $_POST['qte'], $_POST['seuil'], $_POST['seuilactif']);
+				$controller->updateProduct($_POST['id'], $_POST['ref'], $_POST['nom'], $_POST['commentaires'], $_POST['qte'], $_POST['prix'], $_POST['seuil'], $_POST['seuilactif']);
 			}
 			
 		break;

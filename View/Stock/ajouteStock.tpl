@@ -51,6 +51,26 @@
 				?>
 			</tr>
 			<tr>
+				<td><label class="control-label" for="prix">Prix :</label></td>
+				<?php if(empty($stock['price'])){ 
+				 		echo "<td><input type=text name='prix'></td>";
+					}else{
+						echo "<td><input type=text name='prix' value=".$stock['quantity']."></td>";
+					}
+				?>
+			</tr>
+			<tr>
+				<td><label class="control-label" for="seuilactif">Seuil d'alerte actif</td>
+						<?php if(empty($stock['seuil_active'])){ 
+				 				echo "<td><input type='checkbox' id='seuilactif' name='seuilactif' value='1'></td>";
+							}else{
+								echo '<td><input type="checkbox" id="seuilactif" name="seuilactif" checked value="1"></td>';
+							}
+						?>
+					</label>
+				</td>
+			</tr>
+			<tr>
 				<td><label class="control-label" for="seuil">Seuil d'alerte <buttton id="seuilInfo" class='btn btn-mini' rel="popover" data-content="Lorsque la quantité d'un produit en stock atteint le seuil définis, un email d'alerte est envoyé" data-original-title="Seuil d'alerte" </buttton><i class='icon-question-sign'></label></td>
 				<?php if(empty($stock['seuil_value'])){ 
 				 		echo "<td><input type=text name='seuil'></i></a></td>";
@@ -58,17 +78,6 @@
 						echo "<td><input type=text name='seuil' value=".$stock['seuil_value']."></td>";
 					}
 				?>
-			</tr>
-			<tr>
-				<td><label class="control-label" for="seuilactif">Seuil d'alerte actif
-						<?php if(empty($stock['seuil_active'])){ 
-				 				echo "<input type='checkbox' id='seuilactif' name='seuilactif' value='1'>";
-							}else{
-								echo '<input type="checkbox" id="seuilactif" name="seuilactif" checked value="1">';
-							}
-						?>
-					</label>
-				</td>
 			</tr>
 			<tr>
 				<td><label class="control-label" for="client">Client :</label></td>

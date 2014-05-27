@@ -4,7 +4,7 @@ class Model_Product extends Model_Template{
 
 	public function __construct(){
 		parent::__construct();
-		$sql = 'INSERT INTO product (reference, name, description, quantity, seuil_value, seuil_active) VALUES (?, ?, ?, ?, ?, ?)';
+		$sql = 'INSERT INTO product (reference, name, description, quantity, price, seuil_value, seuil_active) VALUES (?, ?, ?, ?, ?, ?, ?)';
 		$this->add = Controller_Template::$db->prepare($sql);
 
 		$sql = 'SELECT * FROM product'; 
@@ -13,7 +13,7 @@ class Model_Product extends Model_Template{
 		$sql = 'SELECT * FROM product WHERE id = ?';
 		$this->getProduct = Controller_Template::$db->prepare($sql);
 
-		$sql = 'UPDATE product SET reference = :reference, name = :nom, description = :commentaire, quantity = :quantite, seuil_value = :seuil, seuil_active = :seuil_active
+		$sql = 'UPDATE product SET reference = :reference, name = :nom, description = :commentaire, quantity = :quantite, price = :prix, seuil_value = :seuil, seuil_active = :seuil_active
 				WHERE id = :id';
 		$this->updateProduct = Controller_Template::$db->prepare($sql);
 
@@ -24,8 +24,8 @@ class Model_Product extends Model_Template{
 		$this->getQuantityEqualLimit = Controller_Template::$db->prepare($sql);
 	}
 
-	public function addProduct($reference, $nom, $commentaire, $quantite, $seuil, $seuilactif){
-		$this->add->execute(array($reference, $nom, $commentaire, $quantite, $seuil, $seuilactif));
+	public function addProduct($reference, $nom, $commentaire, $quantite, $prix, $seuil, $seuilactif){
+		$this->add->execute(array($reference, $nom, $commentaire, $quantite, $prix, $seuil, $seuilactif));
 	}
 
 	public function getAllProduct(){
@@ -52,13 +52,14 @@ class Model_Product extends Model_Template{
 		}
 	}
 
-	public function updateProduct($id, $reference, $nom, $commentaire, $quantite, $seuil, $seuilactif){
+	public function updateProduct($id, $reference, $nom, $commentaire, $quantite, $prix, $seuil, $seuilactif){
 		$this->updateProduct->execute(array(
 										'id' => $id,
 										'reference' => $reference,
 										'nom' => $nom,
 										'commentaire' => $commentaire,
 										'quantite' => $quantite,
+										'prix' =>$prix,
 										'seuil' => $seuil,
 										'seuil_active' => $seuilactif
 									));
