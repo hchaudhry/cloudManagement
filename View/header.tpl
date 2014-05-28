@@ -7,13 +7,15 @@
 		<link media="screen" href="css/bootstrap-responsive.css" type="text/css" rel="stylesheet" />
 		<link media="screen" href="css/global.css" type="text/css" rel="stylesheet" />
 		<link media="screen" href="css/docs.css" type="text/css" rel="stylesheet" />
+		<link type="text/css" rel="stylesheet" href="js/simplePagination/simplePagination.css"/>
 
 		<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js "></script>
 		<script type="text/javascript" src="js/product.js "></script>
 		<script type="text/javascript" src="js/client.js "></script>
 		<script type="text/javascript" src="js/user.js "></script>	
-		<script type="text/javascript" src="js/supplier.js "></script>		
+		<script type="text/javascript" src="js/supplier.js "></script>
+		<script type="text/javascript" src="js/simplePagination/jquery.simplePagination.js"></script>		
 		<title><?php echo $title; ?></title>
 	</head>
 	<body>

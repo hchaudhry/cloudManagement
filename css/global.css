@@ -62,7 +62,7 @@
 	#productAdd{
 				margin: auto;
 	}
-	#productTable, #clientTable, #usersTable{
+	#productTable, #clientTable, #usersTable, #supplierTable{
 				margin-left: 10px;
 				width: 98%;
 				margin-top: 20px;
@@ -76,4 +76,14 @@
 	
 	.header{
 		font-weight: bold;
+	}
+
+	#tablePagination{
+		padding-top: 10px;
+		margin-bottom: 5px;
+		margin-left: 334px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 297px;
+		position: relative;
 	}

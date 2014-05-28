@@ -55,7 +55,7 @@
 				<?php if(empty($stock['price'])){ 
 				 		echo "<td><input type=text name='prix'></td>";
 					}else{
-						echo "<td><input type=text name='prix' value=".$stock['quantity']."></td>";
+						echo "<td><input type=text name='prix' value=".$stock['price']."></td>";
 					}
 				?>
 			</tr>
