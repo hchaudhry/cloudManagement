@@ -45,6 +45,7 @@ class Controller_Users extends Controller_Template{
 				
 				//sauvegarde des identifiants
 				$_SESSION['login']=$login;
+				$_SESSION['isSupAdmin'] = $connexion['isSupAdmin'];
 				$_SESSION['mdp']= $mdp;
 				
 				header('Location: index.php?module=indexStock');
@@ -67,6 +68,8 @@ class Controller_Users extends Controller_Template{
 	}
 	
 	public function getUserById($id){
+		$this->checkIsAdmin();
+		
 		$title = "Cloud Management";
 		
 		$user = $this->selfModel->getUserById($id);
@@ -77,6 +80,8 @@ class Controller_Users extends Controller_Template{
 	}
 	
 	public function ajoutUser(){
+		$this->checkIsAdmin();
+		
 		$title = "Cloud Management";	
 		require 'View/header.tpl';
 		require 'View/Users/addUser.tpl';
@@ -84,6 +89,8 @@ class Controller_Users extends Controller_Template{
 	}
 	
 	public function addUser($lastname, $firstname, $login, $email, $motDePasse){
+		$this->checkIsAdmin();
+		
 		$title = "Cloud Management";
 		
 		$user = $this->selfModel->addUser($lastname, $firstname, $login, $email, $motDePasse);
@@ -92,6 +99,8 @@ class Controller_Users extends Controller_Template{
 	}
 	
 	public function listUsers(){
+		$this->checkIsAdmin();
+		
 		$title = utf8_decode("Cloud Management");
 		
 		$allUsers = $this->selfModel->getAllUsersInfos();
@@ -102,6 +111,8 @@ class Controller_Users extends Controller_Template{
 	}
 	
 	public function updateUser($id, $lastname, $firstname, $login, $email, $password){
+		$this->checkIsAdmin();
+		
 		$title = "Cloud Management";
 		
 		$updateUser = $this->selfModel->updateUser($id, $lastname, $firstname, $login, $email, $password);
@@ -114,10 +125,19 @@ class Controller_Users extends Controller_Template{
 	}
 	
 	public function deleteUser($id){
+		$this->checkIsAdmin();
+		
 		$title = "Cloud Management";
 		$userToDelete = $this->selfModel->deleteUser($id);
 	
 		header('Location: index.php?module=listUsers');
+	}
+	
+	public function checkIsAdmin(){
+		
+		if($_SESSION['isSupAdmin'] != 1){
+			header('Location: index.php?module=indexStock');
+		}
 	}
 }
 

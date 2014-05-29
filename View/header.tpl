@@ -50,13 +50,18 @@
 									  <li><a href="index.php?module=listeClient">Liste des clients</a></li>
 									</ul>
 								</li>
-									<li class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Utilisateurs <b class="caret"></b></a>
-									<ul class="dropdown-menu" role="menu" >
-									  <li><a href="index.php?module=ajoutUser">Ajout des utilisateurs</a></li>
-									  <li><a href="index.php?module=listUsers">Liste des utilisateurs</a></li>
-									</ul>
-								</li>
+								
+								<?php if($_SESSION['isSupAdmin'] == 1){
+									
+										echo "<li class='dropdown'>";
+										echo "<a class='dropdown-toggle' data-toggle='dropdown' href='#'>Utilisateurs <b class='caret'></b></a>";
+										echo "<ul class='dropdown-menu' role='menu'>";
+									  	echo "<li><a href='index.php?module=ajoutUser'>Ajout des utilisateurs</a></li>";
+									  	echo "<li><a href='index.php?module=listUsers'>Liste des utilisateurs</a></li>";
+										echo "</ul>";
+										echo "</li>";
+									}
+								?>
 								
 							</ul>
 							<div class="navbar-form pull-right">
