@@ -8,13 +8,15 @@
 				</div>
 				
 				<div>
-					<table class="table table-striped table-bordered" id="productTable">
+					<table class="table table-bordered headerTable">
 						<tr class="header">
 							<td>Référence</td>
-							<td>Désignation</td>
-							<td>Quantité en stock</td>
-							<td>Action</td>
+							<td style="width: 248px;">Désignation</td>
+							<td style="width: 236px;">Quantité en stock</td>
+							<td style="width: 202px;">Action</td>
 						</tr>
+					</table>
+					<table class="table table-striped table-bordered" id="productTable">
 						<?php foreach ($stock as $product):
 							echo "<tr>";
 								echo "<input type='hidden' class='num' name='num' value=".$product['id']."></td>";

@@ -8,13 +8,15 @@
 				</div>
 				
 				<div>
-					<table class="table table-striped table-bordered" id="usersTable">
+					<table class="table table-bordered headerTable">
 						<tr class="header">
 							<td>Nom</td>
-							<td>Prénom</td>
-							<td>E-mail</td>
-							<td>Action</td>
+							<td style="width: 160px;">Prénom</td>
+							<td style="width: 447px;">E-mail</td>
+							<td style="width: 125px;">Action</td>
 						</tr>
+					</table>
+					<table class="table table-striped table-bordered" id="usersTable">
 						<?php foreach ($allUsers as $oneUser):
 							echo "<tr>";
 								echo "<input type='hidden' class='num' name='num' value=".$oneUser['id']."></td>";

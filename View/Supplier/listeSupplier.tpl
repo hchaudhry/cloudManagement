@@ -8,13 +8,15 @@
 				</div>
 				
 				<div>
-					<table class="table table-striped table-bordered" id="supplierTable">
+					<table class="table table-bordered headerTable">
 						<tr class="header">
 							<td>Nom</td>
-							<td>Société</td>
-							<td>Téléphone</td>
-							<td>Action</td>
+							<td style="width: 189px;">Société</td>
+							<td style="width: 268px;">Téléphone</td>
+							<td style="width: 264px;">Action</td>
 						</tr>
+					</table>
+					<table class="table table-striped table-bordered" id="supplierTable">
 						<?php foreach ($suppliers as $oneSupplier):
 							echo "<tr>";
 								echo "<input type='hidden' class='num' name='num' value=".$oneSupplier['id']."></td>";
