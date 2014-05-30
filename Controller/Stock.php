@@ -39,10 +39,14 @@ class Controller_Stock extends Controller_Template{
 		$title = "Cloud Management";
 
 		$stock = $this->selfModel->getAllProduct();
-
-		require 'View/header.tpl';
-		require 'View/index/index.tpl';
-		require 'View/footer.tpl';
+		
+		if ($stock == null) {
+			$this->ajouteStock();
+		}else {
+			require 'View/header.tpl';
+			require 'View/index/index.tpl';
+			require 'View/footer.tpl';
+		}
 	}
 
 	public function updateProduct($id, $reference, $nom, $commentaire, $quantite, $prix, $seuil, $seuilactif){
@@ -59,10 +63,14 @@ class Controller_Stock extends Controller_Template{
 	public function getProduct($id){
 		$title = "Cloud Management";
 		$stock = $this->selfModel->getProduct($id);
-
-		require 'View/header.tpl';
-		require 'View/Stock/ajouteStock.tpl';
-		require 'View/footer.tpl';
+		
+		if ($stock == null) {
+			$this->getAllProduct();
+		}else {
+			require 'View/header.tpl';
+			require 'View/Stock/ajouteStock.tpl';
+			require 'View/footer.tpl';
+		}
 	}	
 
 	public function deleteProduct($id){

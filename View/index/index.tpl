@@ -21,9 +21,9 @@
 							echo "<tr>";
 								echo "<input type='hidden' class='num' name='num' value=".$product['id']."></td>";
 								echo "<td>".$product['reference']."</td>";
-								echo "<td>".$product['name']."</td>";
-								echo "<td>".$product['quantity']."</td>";
-								echo "<td class='header'><a class='btn btn-small delete-line header'><i class='icon-trash header'></i></a></td>";
+								echo "<td style='width: 248px;'>".$product['name']."</td>";
+								echo "<td style='width: 236px;'>".$product['quantity']."</td>";
+								echo "<td style='width: 202px;' class='header'><a class='btn btn-small delete-line header'><i class='icon-trash header'></i></a></td>";
 							echo "</tr>";
 						endforeach; ?>
 					</table>

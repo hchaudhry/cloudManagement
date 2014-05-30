@@ -6,12 +6,6 @@ class Controller_Supplier extends Controller_Template{
 		parent::__construct();
 		$this->selfModel = new Model_Supplier();
 	}
-	
-	// public function index() {
-	// 	require 'view/header.tpl';
-	// 	require 'view/index/index.tpl';
-	// 	require 'view/footer.tpl';
-	// }
 
 	public function ajouteFournisseur(){
 		$title = "Cloud Management"; 
@@ -34,10 +28,14 @@ class Controller_Supplier extends Controller_Template{
 		$title = "Cloud Management";
 
 		$suppliers = $this->selfModel->getAllSupplier();
-
-		require 'View/header.tpl';
-		require 'View/Supplier/listeSupplier.tpl';
-		require 'View/footer.tpl';
+		
+		if($suppliers == null){
+			$this->ajouteFournisseur();
+		}else {
+			require 'View/header.tpl';
+			require 'View/Supplier/listeSupplier.tpl';
+			require 'View/footer.tpl';
+		}	
 	}
 
 	public function updateSupplier($id, $nom, $societe, $adresse, $ville, $codePostal, $telephone, $email){
@@ -51,19 +49,23 @@ class Controller_Supplier extends Controller_Template{
 		require 'View/footer.tpl';
 	}
 
-	public function getSupplier($id){
+	public function getSupplier($id){		
 		$title = "Cloud Management";
 		$supplier = $this->selfModel->getSupplier($id);
-
-		require 'View/header.tpl';
-		require 'View/Supplier/addSupplier.tpl';
-		require 'View/footer.tpl';
+		
+		if($supplier == null){
+			$this->getAllSupplier();
+		}else {
+			require 'View/header.tpl';
+			require 'View/Supplier/addSupplier.tpl';
+			require 'View/footer.tpl';
+		}
 	}	
 
 	public function deleteSupplier($id){
 		$title = "Cloud Management - Fournisseurs";
 		$supplierToDelete = $this->selfModel->deleteSupplier($id);
-
+		
 		header('Location: index.php?module=listeFournisseur');
 	}	
 	

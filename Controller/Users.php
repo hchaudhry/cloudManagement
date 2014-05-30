@@ -74,9 +74,13 @@ class Controller_Users extends Controller_Template{
 		
 		$user = $this->selfModel->getUserById($id);
 		
-		require 'View/header.tpl';
-		require 'View/Users/addUser.tpl';
-		require 'View/footer.tpl';
+		if ($user == null) {
+			$this->listUsers();
+		}else {
+			require 'View/header.tpl';
+			require 'View/Users/addUser.tpl';
+			require 'View/footer.tpl';
+		}
 	}
 	
 	public function ajoutUser(){
@@ -104,10 +108,14 @@ class Controller_Users extends Controller_Template{
 		$title = utf8_decode("Cloud Management");
 		
 		$allUsers = $this->selfModel->getAllUsersInfos();
-	
-		require 'View/header.tpl';
-		require 'View/Users/listUsers.tpl';
-		require 'View/footer.tpl';
+		
+		if ($allUsers == null) {
+			$this->ajouteUser();
+		}else {
+			require 'View/header.tpl';
+			require 'View/Users/listUsers.tpl';
+			require 'View/footer.tpl';
+		}
 	}
 	
 	public function updateUser($id, $lastname, $firstname, $login, $email, $password){

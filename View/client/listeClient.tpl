@@ -21,9 +21,9 @@
 							echo "<tr>";
 								echo "<input type='hidden' class='num' name='num' value=".$oneClient['id']."></td>";
 								echo "<td>".$oneClient['name']."</td>";
-								echo "<td>".$oneClient['society']."</td>";
-								echo "<td>".$oneClient['phone']."</td>";
-								echo "<td class='header'><a class='btn btn-small delete-client header'><i class='icon-trash header'></i></a></td>";
+								echo "<td style='width: 149px;'>".$oneClient['society']."</td>";
+								echo "<td style='width: 149px;'>".$oneClient['phone']."</td>";
+								echo "<td style='width: 344px;' class='header'><a class='btn btn-small delete-client header'><i class='icon-trash header'></i></a></td>";
 							echo "</tr>";
 						endforeach; ?>
 					</table>

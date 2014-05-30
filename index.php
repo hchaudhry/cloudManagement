@@ -40,8 +40,8 @@ else{
 		break;
 	
 		case 'tableau':
-		
 		break;
+		
 	 	case 'users': //l'url
 			$controller = Controller_Users::getInstance('Users'); //fichiers php
 			$controller->index();
@@ -56,6 +56,9 @@ else{
 		
 		case 'addUser':
 			$controller = Controller_Users::getInstance('Users');
+			
+			if(empty($_POST)) return $controller->listUsers();
+			
 			if(empty($_POST['id'])){
 				$controller->addUser($_POST['lastname'], $_POST['firstname'], $_POST['login'], $_POST['email'], $_POST['password']);
 			}else{
@@ -75,11 +78,17 @@ else{
 		
 		case 'getUser':
 			$controller = Controller_Users::getInstance('Users');
+			
+			if(!isset($_GET['id'])) return $controller->listUsers();
+			
 			$controller->getUserById($_GET['id']);
 		break;
 		
 		case 'deleteUser':
 			$controller = Controller_Users::getInstance('Users');
+			
+			if(!isset($_GET['id'])) return $controller->listUsers();
+			
 			$controller->deleteUser($_GET['id']);
 		break;
 			
@@ -90,6 +99,7 @@ else{
 			exit();
 			break;
 		
+		// Stock
 		case 'indexStock':
 			$controller = Controller_Stock::getInstance('Stock');
 			$controller->getAllProduct();
@@ -102,6 +112,9 @@ else{
 
 		case 'addStock':
 			$controller = Controller_Stock::getInstance('Stock');
+			
+			if(empty($_POST)) return $controller->getAllProduct();
+			
 			if(empty($_POST['id'])){
 				if (!isset($_POST['seuilactif'])) {
 					$_POST['seuilactif'] = 0;
@@ -120,11 +133,17 @@ else{
 
 		case 'getProduct':
 			$controller = Controller_Stock::getInstance('Stock');
+			
+			if(!isset($_GET['id'])) return $controller->getAllProduct();
+			
 			$controller->getProduct($_GET['id']);
 		break;
 
 		case 'deleteProduct':
 			$controller = Controller_Stock::getInstance('Stock');
+			
+			if(!isset($_GET['id'])) return $controller->getAllProduct();
+			
 			$controller->deleteProduct($_GET['id']);
 		break;
 		
@@ -133,7 +152,7 @@ else{
 			$controller->getQuantityEqualLimit();
 		break;
 
-		// Cleint
+		// Client
 		case 'listeClient':
 			$controller = Controller_Client::getInstance('Client');
 			$controller->getAllClient();
@@ -146,6 +165,9 @@ else{
 
 		case 'addClient':
 			$controller = Controller_Client::getInstance('Client');
+			
+			if(empty($_POST)) return $controller->getAllClient();
+			
 			if(empty($_POST['id'])){
 				$controller->addClient($_POST['nom'], $_POST['societe'], $_POST['adresse'], $_POST['ville'], $_POST['code-postal'], $_POST['telephone'], $_POST['email']);
 			}else{
@@ -158,11 +180,17 @@ else{
 
 		case 'getClient':
 			$controller = Controller_Client::getInstance('Client');
+			
+			if(!isset($_GET['id'])) return $controller->getAllClient();
+			
 			$controller->getClient($_GET['id']);
 		break;
 
 		case 'deleteClient':
 			$controller = Controller_Client::getInstance('Client');
+			
+			if(!isset($_GET['id'])) return $controller->getAllClient();
+			
 			$controller->deleteClient($_GET['id']);
 		break;
 		
@@ -171,15 +199,18 @@ else{
 		case 'listeSupplier':
 			$controller = Controller_Supplier::getInstance('Supplier');
 			$controller->getAllSupplier();
-			break;
+		break;
 		
 		case 'ajouteFournisseur':
 			$controller = Controller_Supplier::getInstance('Supplier');
 			$controller->ajouteFournisseur();
-			break;
+		break;
 		
 		case 'addSupplier':
 			$controller = Controller_Supplier::getInstance('Supplier');
+			
+			if(empty($_POST)) return $controller->getAllSupplier();
+			
 			if(empty($_POST['id'])){
 				$controller->addSupplier($_POST['nom'], $_POST['societe'], $_POST['adresse'], $_POST['ville'], $_POST['code-postal'], $_POST['telephone'], $_POST['email']);
 			}else{
@@ -187,17 +218,23 @@ else{
 				$controller = Controller_Supplier::getInstance('Supplier');
 				$controller->updateSupplier($_POST['id'], $_POST['nom'], $_POST['societe'], $_POST['adresse'], $_POST['ville'], $_POST['code-postal'], $_POST['telephone'], $_POST['email']);
 			}
-			break;
+		break;
 		
 		case 'getSupplier':
 			$controller = Controller_Supplier::getInstance('Supplier');
+			
+			if(!isset($_GET['id'])) return $controller->getAllSupplier();
+			
 			$controller->getSupplier($_GET['id']);
-			break;
+		break;
 		
 		case 'deleteSupplier':
 			$controller = Controller_Supplier::getInstance('Supplier');
+			
+			if(!isset($_GET['id'])) return $controller->getAllSupplier();
+			
 			$controller->deleteSupplier($_GET['id']);
-			break;
+		break;
 		
 		//Mail
 		case 'sendMail':

@@ -21,9 +21,9 @@
 							echo "<tr>";
 								echo "<input type='hidden' class='num' name='num' value=".$oneUser['id']."></td>";
 								echo "<td>".$oneUser['lastname']."</td>";
-								echo "<td>".$oneUser['firstname']."</td>";
-								echo "<td>".$oneUser['email']."</td>";
-								echo "<td class='header'><a class='btn btn-small delete-user header'><i class='icon-trash header'></i></a></td>";
+								echo "<td style='width: 160px;'>".$oneUser['firstname']."</td>";
+								echo "<td style='width: 447px;'>".$oneUser['email']."</td>";
+								echo "<td style='width: 125px;' class='header'><a class='btn btn-small delete-user header'><i class='icon-trash header'></i></a></td>";
 							echo "</tr>";
 						endforeach; ?>
 					</table>

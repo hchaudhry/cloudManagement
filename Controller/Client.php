@@ -6,12 +6,6 @@ class Controller_Client extends Controller_Template{
 		parent::__construct();
 		$this->selfModel = new Model_Client();
 	}
-	
-	// public function index() {
-	// 	require 'view/header.tpl';
-	// 	require 'view/index/index.tpl';
-	// 	require 'view/footer.tpl';
-	// }
 
 	public function ajouteClient(){
 		$title = "Cloud Management"; 
@@ -34,10 +28,14 @@ class Controller_Client extends Controller_Template{
 		$title = "Cloud Management";
 
 		$clients = $this->selfModel->getAllClient();
-
-		require 'View/header.tpl';
-		require 'View/client/listeClient.tpl';
-		require 'View/footer.tpl';
+		
+		if ($clients == null) {
+			$this->ajouteClient();
+		}else {
+			require 'View/header.tpl';
+			require 'View/client/listeClient.tpl';
+			require 'View/footer.tpl';
+		}
 	}
 
 	public function updateClient($id, $nom, $societe, $adresse, $ville, $codePostal, $telephone, $email){
@@ -54,10 +52,14 @@ class Controller_Client extends Controller_Template{
 	public function getClient($id){
 		$title = "Cloud Management";
 		$client = $this->selfModel->getClient($id);
-
-		require 'View/header.tpl';
-		require 'View/client/addClient.tpl';
-		require 'View/footer.tpl';
+		
+		if ($client == null) {
+			$this->getAllClient();
+		}else {
+			require 'View/header.tpl';
+			require 'View/client/addClient.tpl';
+			require 'View/footer.tpl';
+		}
 	}	
 
 	public function deleteClient($id){
