@@ -8,7 +8,10 @@ class Controller_Users extends Controller_Template{
 	}
 
 	public function index(){
-		$title = "Liste des Users";
+		$title = "Cloud Management";
+		
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
+		
 		$users = $this->selfModel->getAll(); 
 		
 		header('Content-Type: text/html; charset=utf-8');
@@ -72,6 +75,8 @@ class Controller_Users extends Controller_Template{
 		
 		$title = "Cloud Management";
 		
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
+		
 		$user = $this->selfModel->getUserById($id);
 		
 		if ($user == null) {
@@ -86,7 +91,10 @@ class Controller_Users extends Controller_Template{
 	public function ajoutUser(){
 		$this->checkIsAdmin();
 		
-		$title = "Cloud Management";	
+		$title = "Cloud Management";
+
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
+		
 		require 'View/header.tpl';
 		require 'View/Users/addUser.tpl';
 		require 'View/footer.tpl';
@@ -97,6 +105,8 @@ class Controller_Users extends Controller_Template{
 		
 		$title = "Cloud Management";
 		
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
+		
 		$user = $this->selfModel->addUser($lastname, $firstname, $login, $email, $motDePasse);
 		
 		header('Location: index.php?module=listUsers');
@@ -106,6 +116,8 @@ class Controller_Users extends Controller_Template{
 		$this->checkIsAdmin();
 		
 		$title = utf8_decode("Cloud Management");
+		
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
 		
 		$allUsers = $this->selfModel->getAllUsersInfos();
 		
@@ -123,6 +135,8 @@ class Controller_Users extends Controller_Template{
 		
 		$title = "Cloud Management";
 		
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
+		
 		$updateUser = $this->selfModel->updateUser($id, $lastname, $firstname, $login, $email, $password);
 		
 		$user = $this->selfModel->getUserById($id);
@@ -136,6 +150,9 @@ class Controller_Users extends Controller_Template{
 		$this->checkIsAdmin();
 		
 		$title = "Cloud Management";
+		
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
+		
 		$userToDelete = $this->selfModel->deleteUser($id);
 	
 		header('Location: index.php?module=listUsers');

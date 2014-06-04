@@ -2,7 +2,7 @@
 class Controller_Index extends Controller_Template{
 
 	public function index(){
-		$title = utf8_decode("Cloud_management"); 
+		$title = utf8_decode("Cloud Management"); 
 		// $title pourra être utilisé dans les scripts et les templates incorporé dans ce script PHP par les fonctions "include" ou "require"
 		header('Content-Type: text/html; charset=utf-8');
 		if (isset($_SESSION['login']) && isset($_SESSION['mdp'])) {
@@ -12,6 +12,10 @@ class Controller_Index extends Controller_Template{
 		} else {
 			require 'View/Users/connexion.tpl';
 		}
+	}
+	
+	public function connected(){
+		return empty($_SESSION);
 	}
 }
 ?>

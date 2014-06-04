@@ -10,6 +10,8 @@ class Controller_Client extends Controller_Template{
 	public function ajouteClient(){
 		$title = "Cloud Management"; 
 		
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
+		
 		header('Content-Type: text/html; charset=utf-8');
 		require 'View/header.tpl';
 		require 'View/client/addClient.tpl';
@@ -18,6 +20,8 @@ class Controller_Client extends Controller_Template{
 
 	public function addClient($nom, $societe, $adresse, $ville, $codePostal, $telephone, $email){
 		$title = "Cloud Management";
+		
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
 
 		$client = $this->selfModel->addClient($nom, $societe, $adresse, $ville, $codePostal, $telephone, $email);
 		
@@ -26,6 +30,8 @@ class Controller_Client extends Controller_Template{
 
 	public function getAllClient(){
 		$title = "Cloud Management";
+		
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
 
 		$clients = $this->selfModel->getAllClient();
 		
@@ -40,6 +46,9 @@ class Controller_Client extends Controller_Template{
 
 	public function updateClient($id, $nom, $societe, $adresse, $ville, $codePostal, $telephone, $email){
 		$title = "Cloud Management";
+		
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
+		
 		$product = $this->selfModel->updateClient($id, $nom, $societe, $adresse, $ville, $codePostal, $telephone, $email);
 
 		$client = $this->selfModel->getClient($id);
@@ -51,6 +60,9 @@ class Controller_Client extends Controller_Template{
 
 	public function getClient($id){
 		$title = "Cloud Management";
+		
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
+		
 		$client = $this->selfModel->getClient($id);
 		
 		if ($client == null) {
@@ -64,6 +76,9 @@ class Controller_Client extends Controller_Template{
 
 	public function deleteClient($id){
 		$title = "Cloud Management";
+		
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
+		
 		$clientToDelete = $this->selfModel->deleteClient($id);
 
 		header('Location: index.php?module=listeClient');

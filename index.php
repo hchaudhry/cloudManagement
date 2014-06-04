@@ -25,9 +25,8 @@ Controller_Template::$db = new MyPDO('mysql:host=localhost;dbname=gestionstock',
 
 // GESTION UTILISATEUR
 
-
 // Analyse de la requête
-if(empty($_GET) OR empty($_GET['module'])){
+if(empty($_GET) || empty($_GET['module'])){
 	$controller = Controller_Index::getInstance('Index');
 	$controller->index();
 }

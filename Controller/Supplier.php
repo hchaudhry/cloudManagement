@@ -10,6 +10,8 @@ class Controller_Supplier extends Controller_Template{
 	public function ajouteFournisseur(){
 		$title = "Cloud Management"; 
 		
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
+		
 		header('Content-Type: text/html; charset=utf-8');
 		require 'View/header.tpl';
 		require 'View/Supplier/addSupplier.tpl';
@@ -18,6 +20,8 @@ class Controller_Supplier extends Controller_Template{
 
 	public function addSupplier($nom, $societe, $adresse, $ville, $codePostal, $telephone, $email){
 		$title = "Cloud Management";
+		
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
 
 		$supplier = $this->selfModel->addSupplier($nom, $societe, $adresse, $ville, $codePostal, $telephone, $email);
 		
@@ -26,6 +30,8 @@ class Controller_Supplier extends Controller_Template{
 
 	public function getAllSupplier(){
 		$title = "Cloud Management";
+		
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
 
 		$suppliers = $this->selfModel->getAllSupplier();
 		
@@ -40,6 +46,9 @@ class Controller_Supplier extends Controller_Template{
 
 	public function updateSupplier($id, $nom, $societe, $adresse, $ville, $codePostal, $telephone, $email){
 		$title = "Cloud Management";
+		
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
+		
 		$product = $this->selfModel->updateSupplier($id, $nom, $societe, $adresse, $ville, $codePostal, $telephone, $email);
 
 		$supplier = $this->selfModel->getSupplier($id);
@@ -51,6 +60,9 @@ class Controller_Supplier extends Controller_Template{
 
 	public function getSupplier($id){		
 		$title = "Cloud Management";
+		
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
+		
 		$supplier = $this->selfModel->getSupplier($id);
 		
 		if($supplier == null){
@@ -63,7 +75,10 @@ class Controller_Supplier extends Controller_Template{
 	}	
 
 	public function deleteSupplier($id){
-		$title = "Cloud Management - Fournisseurs";
+		$title = "Cloud Management";
+		
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
+		
 		$supplierToDelete = $this->selfModel->deleteSupplier($id);
 		
 		header('Location: index.php?module=listeFournisseur');

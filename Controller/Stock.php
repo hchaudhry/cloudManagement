@@ -15,8 +15,9 @@ class Controller_Stock extends Controller_Template{
 	}
 
 	public function ajouteStock(){
-		$title = "Ajout de Stock";
-		//$users = $this->selfModel->getAll(); 
+		$title = "Cloud Management";
+		
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
 		
 		header('Content-Type: text/html; charset=utf-8');
 		require 'View/header.tpl';
@@ -25,18 +26,19 @@ class Controller_Stock extends Controller_Template{
 	}
 
 	public function addProduct($reference, $nom, $commentaire, $quantite, $prix, $seuil, $seuilactif){
-		$title = "Ajout de Stock";
+		$title = "Cloud Management";
+		
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
 
 		$stock = $this->selfModel->addProduct($reference, $nom, $commentaire, $quantite, $prix, $seuil, $seuilactif);
-
-		// require 'View/header.tpl';
-		// require 'View/index/index.tpl';
-		// require 'View/footer.tpl';
+		
 		header('Location: index.php?module=indexStock');
 	}
 
 	public function getAllProduct(){
 		$title = "Cloud Management";
+		
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
 
 		$stock = $this->selfModel->getAllProduct();
 		
@@ -51,6 +53,9 @@ class Controller_Stock extends Controller_Template{
 
 	public function updateProduct($id, $reference, $nom, $commentaire, $quantite, $prix, $seuil, $seuilactif){
 		$title = "Cloud Management";
+		
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
+		
 		$product = $this->selfModel->updateProduct($id, $reference, $nom, $commentaire, $quantite, $prix, $seuil, $seuilactif);
 
 		$stock = $this->selfModel->getProduct($id);
@@ -62,6 +67,9 @@ class Controller_Stock extends Controller_Template{
 
 	public function getProduct($id){
 		$title = "Cloud Management";
+		
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
+		
 		$stock = $this->selfModel->getProduct($id);
 		
 		if ($stock == null) {
@@ -75,6 +83,9 @@ class Controller_Stock extends Controller_Template{
 
 	public function deleteProduct($id){
 		$title = "Cloud Management";
+		
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
+		
 		$productToDelete = $this->selfModel->deleteProduct($id);
 
 		header('Location: index.php?module=indexStock');
