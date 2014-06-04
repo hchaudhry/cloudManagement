@@ -14,7 +14,7 @@ class Controller_Index extends Controller_Template{
 		}
 	}
 	
-	public function connected(){
+	public static function connected(){
 		return empty($_SESSION);
 	}
 }
