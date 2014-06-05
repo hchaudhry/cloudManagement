@@ -585,7 +585,7 @@ a:hover {
 }
 
 p {
-  margin: 0 0 10px;
+  margin: 5px 0px 0px;
 }
 
 .lead {
@@ -612,7 +612,7 @@ cite {
 }
 
 .muted {
-  color: #999999;
+  color: #000;
 }
 
 .text-warning {

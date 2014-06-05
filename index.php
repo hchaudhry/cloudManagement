@@ -20,7 +20,7 @@ spl_autoload_register('generic_autoload');
 
 
 // Instanciation de la connexion à la BDD
-Controller_Template::$db = new MyPDO('mysql:host=localhost;dbname=gestionstock', 'root', 'demo');
+Controller_Template::$db = new MyPDO('mysql:host=localhost;dbname=gestionstock', 'root', '');
 
 
 // GESTION UTILISATEUR
@@ -91,6 +91,11 @@ else{
 			$controller->deleteUser($_GET['id']);
 		break;
 			
+		case 'rechercheUser':
+			$controller = Controller_Users::getInstance('Users');
+			$controller->rechercheUsers($_POST['rechercher']);
+			break;
+			
 		case 'deconnexion':
 			session_unset();
 			$controller = Controller_Index::getInstance('Index'); //fichiers php
@@ -137,6 +142,11 @@ else{
 			
 			$controller->getProduct($_GET['id']);
 		break;
+		
+		case 'rechercheStock':
+			$controller = Controller_Stock::getInstance('Stock');
+			$controller->rechercheStock($_POST['rechercher']);
+			break;
 
 		case 'deleteProduct':
 			$controller = Controller_Stock::getInstance('Stock');
@@ -193,6 +203,11 @@ else{
 			$controller->deleteClient($_GET['id']);
 		break;
 		
+		case 'rechercheClient':
+			$controller = Controller_Client::getInstance('Client');
+			$controller->rechercheClient($_POST['rechercher']);
+		break;
+		
 		//Fournisseur
 		
 		case 'listeSupplier':
@@ -233,6 +248,11 @@ else{
 			if(!isset($_GET['id'])) return $controller->getAllSupplier();
 			
 			$controller->deleteSupplier($_GET['id']);
+		break;
+		
+		case 'rechercheSupplier':
+			$controller = Controller_Supplier::getInstance('Supplier');
+			$controller->rechercheSupplier($_POST['rechercher']);
 		break;
 		
 		//Mail

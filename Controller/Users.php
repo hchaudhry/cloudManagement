@@ -164,5 +164,14 @@ class Controller_Users extends Controller_Template{
 			header('Location: index.php?module=indexStock');
 		}
 	}
+	
+	public function rechercheUsers($rechercher) {
+		$title = "Cloud Management";
+		$requeteRechercher = $this->selfModel->rechercheUsers($rechercher);
+	
+		require 'View/header.tpl';
+		require 'View/Users/rechercheUsers.tpl';
+		require 'View/footer.tpl';
+	}
 }
 

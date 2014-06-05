@@ -98,6 +98,15 @@ class Controller_Stock extends Controller_Template{
 		return var_dump($stock);
 	}
 	
+	public function rechercheStock($rechercher) {
+		$title = "Cloud Management";
+		$requeteRechercher = $this->selfModel->rechercheStock($rechercher);
+	
+		require 'View/header.tpl';
+		require 'View/stock/rechercheStock.tpl';
+		require 'View/footer.tpl';
+	}
+	
 	
 }
 

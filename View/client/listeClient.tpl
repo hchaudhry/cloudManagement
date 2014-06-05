@@ -4,7 +4,10 @@
 			<div id="global">
 				<div id="line-haut">
 					<input class="btn btn-primary" id="add-btn" type="button" value="Nouveau client" onclick="self.location.href='index.php?module=ajouteClient'" />
-					    <input type="search" placeholder="Rechercher" name="q" style="height:25px; text-align:center; margin-right:10px; float:right;" />
+					<form method="post" action="index.php?module=rechercheClient">    
+						<input type="submit" value="OK" name="rechercheOK" style="text-align:center; margin-top:-50px; float: right;" />
+						<input type="search" placeholder="Rechercher" name="rechercher" style=" text-align:center; margin-right: 50px;margin-top:-50px; float: right;" />
+				</form>
 				</div>
 				
 				<div>

@@ -84,6 +84,13 @@ class Controller_Client extends Controller_Template{
 		header('Location: index.php?module=listeClient');
 	}	
 	
+	public function rechercheClient($rechercher) {
+		$title = "Cloud Management";
+		$requeteRechercher = $this->selfModel->rechercheClient($rechercher);
 	
+		require 'View/header.tpl';
+		require 'View/client/rechercheClient.tpl';
+		require 'View/footer.tpl';
+	}
 }
 

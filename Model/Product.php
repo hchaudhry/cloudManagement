@@ -22,6 +22,9 @@ class Model_Product extends Model_Template{
 		
 		$sql = 'SELECT id, reference, name FROM product WHERE quantity = seuil AND seuil_active = 1';
 		$this->getQuantityEqualLimit = Controller_Template::$db->prepare($sql);
+		
+		$sql = 'select * FROM product WHERE reference = ? or name = ? or quantity = ?';
+		$this->rechercheStock = Controller_Template::$db->prepare($sql);
 	}
 
 	public function addProduct($reference, $nom, $commentaire, $quantite, $prix, $seuil, $seuilactif){
@@ -78,6 +81,17 @@ class Model_Product extends Model_Template{
 		}
 		else{
 			return $tab;
+		}
+	}
+	
+	public function rechercheStock ($recherche) {
+		$this->rechercheStock->execute(array($recherche, $recherche, $recherche));
+		$resultat = $this->rechercheStock->fetchAll();
+		if (empty($resultat)) {
+			return null;
+		}
+		else {
+			return $resultat;
 		}
 	}
 

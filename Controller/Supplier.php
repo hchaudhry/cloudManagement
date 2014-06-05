@@ -84,6 +84,13 @@ class Controller_Supplier extends Controller_Template{
 		header('Location: index.php?module=listeFournisseur');
 	}	
 	
+	public function rechercheSupplier($rechercher) {
+		$title = "Cloud Management";
+		$requeteRechercher = $this->selfModel->rechercheSupplier($rechercher);
+		require 'View/header.tpl';
+		require 'View/Supplier/rechercheSupplier.tpl';
+		require 'View/footer.tpl';
+	}
 	
 }
 

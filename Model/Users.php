@@ -33,6 +33,9 @@ class Model_Users extends Model_Template{
 		
 		$sql = 'DELETE FROM user WHERE id = ?';
 		$this->deleteUser = Controller_Template::$db->prepare($sql);
+		
+		$sql = 'select * FROM user WHERE lastname = ? or firstname = ? or email = ?';
+		$this->rechercheUser = Controller_Template::$db->prepare($sql);
 	}
 
 	public function getByLoginEtMotDePass($login,$mdp){
@@ -100,5 +103,18 @@ class Model_Users extends Model_Template{
 	
 	public function deleteUser($id){
 		$this->deleteUser->execute(array($id));
+	}
+	
+	public function rechercheUsers($recherche){
+		$this->rechercheUser->execute(array($recherche,$recherche,$recherche));
+	
+		$tab = $this->rechercheUser->fetchAll();
+	
+		if(empty($tab)){
+			return null;
+		}
+		else{
+			return $tab;
+		}
 	}
 }

@@ -19,6 +19,9 @@ class Model_Client extends Model_Template{
 
 		$sql = 'DELETE FROM client WHERE id = ?';
 		$this->deleteClient = Controller_Template::$db->prepare($sql);
+		
+		$sql = 'select * FROM client WHERE name = ? or society = ? or phone = ?';
+		$this->rechercheClient = Controller_Template::$db->prepare($sql);
 	}
 
 	public function addClient($nom, $societe, $adresse, $ville, $codePostal, $telephone, $email){
@@ -64,6 +67,17 @@ class Model_Client extends Model_Template{
 
 	public function deleteClient($id){
 		$this->deleteClient->execute(array($id));
+	}
+	
+	public function rechercheClient($recherche) {
+		$this->rechercheClient->execute(array($recherche,$recherche,$recherche));
+		$resultat = $this->rechercheClient->fetchAll();
+		if (empty($resultat)) {
+			return null;
+		}
+		else {
+			return $resultat;
+		}
 	}
 
 }

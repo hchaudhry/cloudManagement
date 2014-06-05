@@ -19,6 +19,9 @@ class Model_Supplier extends Model_Template{
 
 		$sql = 'DELETE FROM supplier WHERE id = ?';
 		$this->deleteSupplier = Controller_Template::$db->prepare($sql);
+		
+		$sql = 'select * FROM supplier WHERE name = ? or society = ? or phone = ?';
+		$this->rechercheSupplier = Controller_Template::$db->prepare($sql);
 	}
 
 	public function addSupplier($nom, $societe, $adresse, $ville, $codePostal, $telephone, $email){
@@ -64,6 +67,17 @@ class Model_Supplier extends Model_Template{
 
 	public function deleteSupplier($id){
 		$this->deleteSupplier->execute(array($id));
+	}
+	
+	public function rechercheSupplier($recherche) {	
+		$this->rechercheSupplier->execute(array($recherche,$recherche,$recherche));
+		$resultat = $this->rechercheSupplier->fetchAll();
+		if (empty($resultat)) {	
+			return null;	
+		}
+		else {	
+			return $resultat;
+		}
 	}
 
 }
