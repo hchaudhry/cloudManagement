@@ -103,7 +103,7 @@ class Controller_Stock extends Controller_Template{
 		$requeteRechercher = $this->selfModel->rechercheStock($rechercher);
 	
 		require 'View/header.tpl';
-		require 'View/stock/rechercheStock.tpl';
+		require 'View/Stock/rechercheStock.tpl';
 		require 'View/footer.tpl';
 	}
 	
