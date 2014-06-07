@@ -1,6 +1,6 @@
 <div class="span5 offset3 container">
 	<div class="row">
-		 <form class="form-horizontal" action="index.php?module=addClient" method="post">
+		 <form id="clientForm" class="form-horizontal" action="index.php?module=addClient" method="post">
             <fieldset>
          
                 <h2 class="span4">Adresse</h2>
@@ -68,9 +68,9 @@
                     <label class="control-label">Code Postal</label>
                     <div class="controls">
                         <?php if(empty($client['cp'])){ 
-                                echo "<input id='code-postal' name='code-postal' type='text' placeholder='12345' class='input-xlarge'>";
+                                echo "<input id='code-postal' name='codePostal' type='text' placeholder='12345' class='input-xlarge'>";
                             }else{
-                                echo "<input id='code-postal' name='code-postal' type='text' placeholder='12345' class='input-xlarge' value=".$client['cp'].">";
+                                echo "<input id='code-postal' name='codePostal' type='text' placeholder='12345' class='input-xlarge' value=".$client['cp'].">";
                             }
                         ?>
                         <p class="help-block"></p>

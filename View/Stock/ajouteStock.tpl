@@ -1,4 +1,4 @@
-	<form action="index.php?module=addStock" method="POST">
+	<form id="productForm" action="index.php?module=addStock" method="POST">
 		<table id="productAdd">
 			<?php if(empty($stock['id'])){ 
 				 		echo "<input type='hidden' name='id'>";

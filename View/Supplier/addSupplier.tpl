@@ -1,6 +1,6 @@
 <div class="span5 offset3 container">
 	<div class="row">
-		 <form class="form-horizontal" action="index.php?module=addSupplier" method="post">
+		 <form id="supplierForm" class="form-horizontal" action="index.php?module=addSupplier" method="post">
             <fieldset>
          
                 <h2 class="span4">Fournisseur</h2>
@@ -68,9 +68,9 @@
                     <label class="control-label">Code Postal</label>
                     <div class="controls">
                         <?php if(empty($supplier['cp'])){ 
-                                echo "<input id='code-postal' name='code-postal' type='text' placeholder='12345' class='input-xlarge'>";
+                                echo "<input id='code-postal' name='codePostal' type='text' placeholder='12345' class='input-xlarge'>";
                             }else{
-                                echo "<input id='code-postal' name='code-postal' type='text' placeholder='12345' class='input-xlarge' value=".$supplier['cp'].">";
+                                echo "<input id='code-postal' name='codePostal' type='text' placeholder='12345' class='input-xlarge' value=".$supplier['cp'].">";
                             }
                         ?>
                         <p class="help-block"></p>
@@ -112,3 +112,7 @@
         </form>
 	</div>
 </div>
+
+<script type="text/javascript">
+
+</script>

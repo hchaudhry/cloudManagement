@@ -1,4 +1,4 @@
-<form class="form-horizontal" action='index.php?module=addUser' method="POST">
+<form id="userForm" class="form-horizontal" action='index.php?module=addUser' method="POST">
   <fieldset>
     <div id="legend">
       
@@ -73,7 +73,7 @@
     <div class="control-group">
       <label class="control-label"  for="password_confirm">Mot de passe (Confirmation)</label>
       <div class="controls">
-        <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="input-xlarge">
+        <input type="password" id="password_confirm" name="passwordconfirm" placeholder="" class="input-xlarge">
       </div>
     </div>
  

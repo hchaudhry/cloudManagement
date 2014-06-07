@@ -20,7 +20,7 @@ spl_autoload_register('generic_autoload');
 
 
 // Instanciation de la connexion à la BDD
-Controller_Template::$db = new MyPDO('mysql:host=localhost;dbname=gestionstock', 'root', '');
+Controller_Template::$db = new MyPDO('mysql:host=localhost;dbname=gestionstock', 'root', 'demo');
 
 
 // GESTION UTILISATEUR
@@ -178,11 +178,11 @@ else{
 			if(empty($_POST)) return $controller->getAllClient();
 			
 			if(empty($_POST['id'])){
-				$controller->addClient($_POST['nom'], $_POST['societe'], $_POST['adresse'], $_POST['ville'], $_POST['code-postal'], $_POST['telephone'], $_POST['email']);
+				$controller->addClient($_POST['nom'], $_POST['societe'], $_POST['adresse'], $_POST['ville'], $_POST['codePostal'], $_POST['telephone'], $_POST['email']);
 			}else{
 				// modification d'un client
 				$controller = Controller_Client::getInstance('Client');
-				$controller->updateClient($_POST['id'], $_POST['nom'], $_POST['societe'], $_POST['adresse'], $_POST['ville'], $_POST['code-postal'], $_POST['telephone'], $_POST['email']);
+				$controller->updateClient($_POST['id'], $_POST['nom'], $_POST['societe'], $_POST['adresse'], $_POST['ville'], $_POST['codePostal'], $_POST['telephone'], $_POST['email']);
 			}
 			
 		break;
@@ -226,11 +226,11 @@ else{
 			if(empty($_POST)) return $controller->getAllSupplier();
 			
 			if(empty($_POST['id'])){
-				$controller->addSupplier($_POST['nom'], $_POST['societe'], $_POST['adresse'], $_POST['ville'], $_POST['code-postal'], $_POST['telephone'], $_POST['email']);
+				$controller->addSupplier($_POST['nom'], $_POST['societe'], $_POST['adresse'], $_POST['ville'], $_POST['codePostal'], $_POST['telephone'], $_POST['email']);
 			}else{
 				// modification d'un fournisseur
 				$controller = Controller_Supplier::getInstance('Supplier');
-				$controller->updateSupplier($_POST['id'], $_POST['nom'], $_POST['societe'], $_POST['adresse'], $_POST['ville'], $_POST['code-postal'], $_POST['telephone'], $_POST['email']);
+				$controller->updateSupplier($_POST['id'], $_POST['nom'], $_POST['societe'], $_POST['adresse'], $_POST['ville'], $_POST['codePostal'], $_POST['telephone'], $_POST['email']);
 			}
 		break;
 		
