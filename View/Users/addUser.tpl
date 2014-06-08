@@ -76,8 +76,22 @@
         <input type="password" id="password_confirm" name="passwordconfirm" placeholder="" class="input-xlarge">
       </div>
     </div>
- 
-    <div class="control-group">
+
+	<div class="control-group">
+		<div class="controls">
+			<label class="checkbox" for="isSupAdmin">
+			<?php if(empty($user['isSupAdmin'])){ 
+				 		echo "<input type='checkbox' name='isSupAdmin' id='isSupAdmin' value='1'>";
+					}else{
+						echo "<input type='checkbox' name='isSupAdmin' id='isSupAdmin' value='1' checked>";
+					}
+			?>
+				Super Admin
+			</label>
+		</div>
+	</div>
+
+	<div class="control-group">
       <div class="controls">
         <button class="btn btn-success">Enregister</button>
       </div>

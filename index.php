@@ -59,9 +59,15 @@ else{
 			if(empty($_POST)) return $controller->listUsers();
 			
 			if(empty($_POST['id'])){
-				$controller->addUser($_POST['lastname'], $_POST['firstname'], $_POST['login'], $_POST['email'], $_POST['password']);
+				if (!isset($_POST['isSupAdmin'])) {
+					$_POST['isSupAdmin'] = 0;
+				}
+				$controller->addUser($_POST['lastname'], $_POST['firstname'], $_POST['login'], $_POST['email'], $_POST['password'], $_POST['isSupAdmin']);
 			}else{
-				$controller->updateUser($_POST['id'], $_POST['lastname'], $_POST['firstname'], $_POST['login'], $_POST['email'], $_POST['password']);
+				if (!isset($_POST['isSupAdmin'])) {
+					$_POST['isSupAdmin'] = 0;
+				}
+				$controller->updateUser($_POST['id'], $_POST['lastname'], $_POST['firstname'], $_POST['login'], $_POST['email'], $_POST['password'], $_POST['isSupAdmin']);
 			}
 		break;
 		

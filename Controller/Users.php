@@ -100,14 +100,14 @@ class Controller_Users extends Controller_Template{
 		require 'View/footer.tpl';
 	}
 	
-	public function addUser($lastname, $firstname, $login, $email, $motDePasse){
+	public function addUser($lastname, $firstname, $login, $email, $motDePasse, $isSupAdmin){
 		$this->checkIsAdmin();
 		
 		$title = "Cloud Management";
 		
 		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
 		
-		$user = $this->selfModel->addUser($lastname, $firstname, $login, $email, $motDePasse);
+		$user = $this->selfModel->addUser($lastname, $firstname, $login, $email, $motDePasse, $isSupAdmin);
 		
 		header('Location: index.php?module=listUsers');
 	}
@@ -130,14 +130,14 @@ class Controller_Users extends Controller_Template{
 		}
 	}
 	
-	public function updateUser($id, $lastname, $firstname, $login, $email, $password){
+	public function updateUser($id, $lastname, $firstname, $login, $email, $password, $isSupAdmin){
 		$this->checkIsAdmin();
 		
 		$title = "Cloud Management";
 		
 		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
 		
-		$updateUser = $this->selfModel->updateUser($id, $lastname, $firstname, $login, $email, $password);
+		$updateUser = $this->selfModel->updateUser($id, $lastname, $firstname, $login, $email, $password, $isSupAdmin);
 		
 		$user = $this->selfModel->getUserById($id);
 

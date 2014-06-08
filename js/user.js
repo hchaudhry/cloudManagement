@@ -33,15 +33,11 @@ $(document).ready(function() {
 	             minlength: 5
 	                },
 	        password: {
-	             required: true,
 	             minlength: 6,
 	             maxlength: 12
 	                },
 	        passwordconfirm: {
 	        	equalTo: "#password"
-//	            required: true,
-//	            minlength: 6,
-//	            maxlength: 12
 	               },
 	        email: {
 	            required: true,
@@ -62,12 +58,10 @@ $(document).ready(function() {
 	 				minlength: "5 caractères minimum requis"
 	 			},
 	 			password: {
-	 				required: "Champ requis",
 	 				minlength: "6 caractères minimum requis",
 	 				maxlength: "12 caractères maximum"
 	 			},
 	 			passwordconfirm: {
-	 				required: "Champ requis",
 	 				minlength: "6 caractères minimum requis",
 	 				maxlength: "12 caractères maximum"
 	 			},

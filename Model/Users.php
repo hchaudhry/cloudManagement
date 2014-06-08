@@ -24,10 +24,10 @@ class Model_Users extends Model_Template{
 				FROM user';
 		$this->selectAllMail = Controller_Template::$db->prepare($sql);
 		
-		$sql = 'INSERT INTO user (lastname, firstname, login, email, motDepasse) VALUES (?, ?, ?, ?, ?)';
+		$sql = 'INSERT INTO user (lastname, firstname, login, email, motDepasse, isSupAdmin) VALUES (?, ?, ?, ?, ?, ?)';
 		$this->add = Controller_Template::$db->prepare($sql);
 		
-		$sql = 'UPDATE user SET lastname= :lastname, firstname = :firstname, login = :login, email = :email, motDepasse = :password
+		$sql = 'UPDATE user SET lastname= :lastname, firstname = :firstname, login = :login, email = :email, motDepasse = :password, isSupAdmin = :isSupAdmin
 				WHERE id = :id';
 		$this->updateUser = Controller_Template::$db->prepare($sql);
 		
@@ -86,18 +86,19 @@ class Model_Users extends Model_Template{
 		}
 	}
 	
-	public function addUser($lastname, $firstname, $login, $email, $motDePasse){
-		$this->add->execute(array($lastname, $firstname, $login, $email, $motDePasse));
+	public function addUser($lastname, $firstname, $login, $email, $motDePasse, $isSupAdmin){
+		$this->add->execute(array($lastname, $firstname, $login, $email, $motDePasse, $isSupAdmin));
 	}
 	
-	public function updateUser($id, $lastname, $firstname, $login, $email, $password){
+	public function updateUser($id, $lastname, $firstname, $login, $email, $password, $isSupAdmin){
 		$this->updateUser->execute(array(
 				'id' => $id,
 				'lastname' => $lastname,
 				'firstname' => $firstname,
 				'login' => $login,
 				'email' => $email,
-				'password' => $password
+				'password' => $password,
+				'isSupAdmin' => $isSupAdmin
 		));
 	}
 	
