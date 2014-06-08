@@ -34,7 +34,6 @@
 				
 			</div>
 			<div id="tablePagination"></div>
-			<div id="footer"></div>
 		</td>
 	</tr>
 </table>

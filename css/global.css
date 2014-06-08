@@ -60,10 +60,10 @@ div#footer {
 		width:100%;
 		height:30px;
 		background-color:#FF8C00;
-		/*margin:0px auto;
-		border-radius: 5px;*/
+		bottom: 0px;
+		/*border-radius: 5px;*/
 		text-align: center;
-		position: absolute;
+		position: relative;
 	}
 
 img#logo {

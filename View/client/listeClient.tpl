@@ -14,7 +14,7 @@
 					<table class="table table-bordered headerTable">
 						<tr class="header">
 							<td>Nom</td>
-							<td style="width: 168.4px;">Société</td>
+							<td style="width: 149px;">Société</td>
 							<td style="width: 149px;">Téléphone</td>
 							<td style="width: 344px;">Action</td>
 						</tr>
@@ -33,7 +33,6 @@
 				</div>
 			</div>
 			<div id="tablePagination"></div>
-			<div id="footer"></div>
 		</td>
 	</tr>
 </table>
