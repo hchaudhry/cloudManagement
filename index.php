@@ -20,7 +20,7 @@ spl_autoload_register('generic_autoload');
 
 
 // Instanciation de la connexion à la BDD
-Controller_Template::$db = new MyPDO('mysql:host=localhost;dbname=gestionstock', 'root', 'demo');
+Controller_Template::$db = new MyPDO('mysql:host=localhost;dbname=gestionstock', 'root', '');
 
 
 // GESTION UTILISATEUR
@@ -49,7 +49,7 @@ else{
 		case 'connexion':
 			$controller = Controller_Users::getInstance('Users'); //fichiers php
 			$login = $_POST['login'];
-			$mdp = $_POST['mdp'];
+			$mdp = sha1($_POST['mdp']); //cryptage du mot de passe 
 			$controller->connexion($login, $mdp);
 		break;
 		
@@ -62,12 +62,12 @@ else{
 				if (!isset($_POST['isSupAdmin'])) {
 					$_POST['isSupAdmin'] = 0;
 				}
-				$controller->addUser($_POST['lastname'], $_POST['firstname'], $_POST['login'], $_POST['email'], $_POST['password'], $_POST['isSupAdmin']);
+				$controller->addUser($_POST['lastname'], $_POST['firstname'], $_POST['login'], $_POST['email'], sha1($_POST['password']), $_POST['isSupAdmin']);
 			}else{
 				if (!isset($_POST['isSupAdmin'])) {
 					$_POST['isSupAdmin'] = 0;
 				}
-				$controller->updateUser($_POST['id'], $_POST['lastname'], $_POST['firstname'], $_POST['login'], $_POST['email'], $_POST['password'], $_POST['isSupAdmin']);
+				$controller->updateUser($_POST['id'], $_POST['lastname'], $_POST['firstname'], $_POST['login'], $_POST['email'], sha1($_POST['password']), $_POST['isSupAdmin']);
 			}
 		break;
 		
