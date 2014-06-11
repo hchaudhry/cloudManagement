@@ -86,6 +86,8 @@ class Controller_Client extends Controller_Template{
 	
 	public function rechercheClient($rechercher) {
 		$title = "Cloud Management";
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
+		
 		$requeteRechercher = $this->selfModel->rechercheClient($rechercher);
 	
 		require 'View/header.tpl';

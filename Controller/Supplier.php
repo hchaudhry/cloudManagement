@@ -86,7 +86,10 @@ class Controller_Supplier extends Controller_Template{
 	
 	public function rechercheSupplier($rechercher) {
 		$title = "Cloud Management";
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
+		
 		$requeteRechercher = $this->selfModel->rechercheSupplier($rechercher);
+		
 		require 'View/header.tpl';
 		require 'View/Supplier/rechercheSupplier.tpl';
 		require 'View/footer.tpl';

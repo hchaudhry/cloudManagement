@@ -100,6 +100,8 @@ class Controller_Stock extends Controller_Template{
 	
 	public function rechercheStock($rechercher) {
 		$title = "Cloud Management";
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
+		
 		$requeteRechercher = $this->selfModel->rechercheStock($rechercher);
 	
 		require 'View/header.tpl';
@@ -107,6 +109,26 @@ class Controller_Stock extends Controller_Template{
 		require 'View/footer.tpl';
 	}
 	
+	public function getProductForStats($id){
+		$title = "Cloud Management";
+		
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
+		
+		$stock = $this->selfModel->getProductForStats($id);
+		
+		echo $stock;
+	}
+	
+	public function statsView(){
+		$title = "Cloud Management";
+	
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
+	
+		header('Content-Type: text/html; charset=utf-8');
+		require 'View/header.tpl';
+		require 'View/Stock/productStats.tpl';
+		require 'View/footer.tpl';
+	}
 	
 }
 

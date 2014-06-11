@@ -166,6 +166,16 @@ else{
 			$controller = Controller_Stock::getInstance('Stock');
 			$controller->getQuantityEqualLimit();
 		break;
+		
+		case 'getProductForStats':
+			$controller = Controller_Stock::getInstance('Stock');
+			$controller->getProductForStats(89);
+		break;
+		
+		case 'statsView':
+			$controller = Controller_Stock::getInstance('Stock');
+			$controller->statsView();
+		break;
 
 		// Client
 		case 'listeClient':

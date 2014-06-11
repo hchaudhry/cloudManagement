@@ -25,6 +25,9 @@ class Model_Product extends Model_Template{
 		
 		$sql = 'select * FROM product WHERE reference = ? or name = ? or quantity = ?';
 		$this->rechercheStock = Controller_Template::$db->prepare($sql);
+		
+		$sql = 'SELECT quantity, saleDate FROM sale WHERE idProduct = ?';
+		$this->productForStats = Controller_Template::$db->prepare($sql);
 	}
 
 	public function addProduct($reference, $nom, $commentaire, $quantite, $prix, $seuil, $seuilactif){
@@ -92,6 +95,18 @@ class Model_Product extends Model_Template{
 		}
 		else {
 			return $resultat;
+		}
+	}
+	
+	public function getProductForStats($id){
+		$this->productForStats->execute(array($id));
+		$tab = $this->productForStats->fetchAll();
+		
+		if(empty($tab)){
+			return null;
+		}
+		else{
+			return json_encode($tab);
 		}
 	}
 

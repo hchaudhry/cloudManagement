@@ -167,6 +167,8 @@ class Controller_Users extends Controller_Template{
 	
 	public function rechercheUsers($rechercher) {
 		$title = "Cloud Management";
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
+		
 		$requeteRechercher = $this->selfModel->rechercheUsers($rechercher);
 	
 		require 'View/header.tpl';
