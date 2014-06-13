@@ -25,6 +25,7 @@
 		<script type="text/javascript" src="js/supplier.js"></script>
 		<script type="text/javascript" src="js/simplePagination/jquery.simplePagination.js"></script>	
 		<script type="text/javascript" src="js/jquery-validation.js"></script>
+		
 		<title><?php echo $title; ?></title>
 		
 	</head>

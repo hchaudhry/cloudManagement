@@ -16,12 +16,30 @@ $(document).ready(function(){
     	}
 	});
 	
+	$('.stats-line').click(function() {
+		window.location = 'index.php?module=statsView&id='+ $(this).parents().find('input').val();
+	});
+	
 	$('#seuilInfo').popover({placement:'top', trigger : 'hover', delay: { show: 200, hide: 100 }});
 	
 	var url = window.location;
 	$('ul.nav a').filter(function() {
 	    return this.href == url;
 	}).parents().addClass('active');
+	
+	$('#stats').on('click', function() {
+		
+		$.urlParam = function(name){
+		    var results = new RegExp('[\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
+		    return results[1] || 0;
+		}
+		var id = $.urlParam('id');
+		var beginDate = $('#beginDate').val();
+		var endDate = $('#endDate').val();
+		
+		console.log(beginDate + ' ' + endDate);
+		window.location = 'index.php?module=getProductForStats&beginDate='+ beginDate + '&endDate=' + endDate + '&id=' + id;
+	});
 
 });
 

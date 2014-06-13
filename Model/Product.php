@@ -26,12 +26,34 @@ class Model_Product extends Model_Template{
 		$sql = 'select * FROM product WHERE reference = ? or name = ? or quantity = ?';
 		$this->rechercheStock = Controller_Template::$db->prepare($sql);
 		
-		$sql = 'SELECT quantity, saleDate FROM sale WHERE idProduct = ?';
+		$sql = 'SELECT id FROM product ORDER BY id DESC LIMIT 0, 1';
+		$this->getLastId = Controller_Template::$db->prepare($sql);
+		
+		//Sale
+		$sql = 'SELECT quantity, saleDate FROM sale WHERE idProduct = :id and saleDate between :beginDate and :endDate';
 		$this->productForStats = Controller_Template::$db->prepare($sql);
+		
+		$sql = 'INSERT INTO sale (idProduct, quantity, saleDate) VALUES (?, ?, ?)';
+		$this->addInSale = Controller_Template::$db->prepare($sql);
+		
+		$sql = 'UPDATE sale SET quantity = :quantity WHERE idProduct = :idProduct AND saleDate = :saleDate';
+		$this->updateSale = Controller_Template::$db->prepare($sql);
+		
+		$sql = 'SELECT * FROM sale WHERE idProduct = ? AND saleDate = ?';
+		$this->getSale = Controller_Template::$db->prepare($sql);
+		
 	}
 
 	public function addProduct($reference, $nom, $commentaire, $quantite, $prix, $seuil, $seuilactif){
 		$this->add->execute(array($reference, $nom, $commentaire, $quantite, $prix, $seuil, $seuilactif));
+		
+	}
+	
+	public function getLastId(){
+		$this->getLastId->execute();
+		$tab = $this->getLastId->fetchAll();
+		
+		return $tab[0];
 	}
 
 	public function getAllProduct(){
@@ -98,15 +120,43 @@ class Model_Product extends Model_Template{
 		}
 	}
 	
-	public function getProductForStats($id){
-		$this->productForStats->execute(array($id));
+	public function getProductForStats($id, $beginDate, $endDate){
+		$this->productForStats->execute(array(
+										'id' => $id,
+										'beginDate' => $beginDate,
+										'endDate' => $endDate
+									));
 		$tab = $this->productForStats->fetchAll();
 		
 		if(empty($tab)){
 			return null;
 		}
 		else{
-			return json_encode($tab);
+			return $tab;
+		}
+	}
+	
+	public function addInSale($idProduct, $quantity, $saleDate){
+		$this->addInSale->execute(array($idProduct, $quantity, $saleDate));
+	}
+	
+	public function updateSale($idProduct, $quantity, $saleDate){
+		$this->updateSale->execute(array(
+				'idProduct' => $idProduct,
+				'quantity' => $quantity,
+				'saleDate' => $saleDate
+		));
+	}
+	
+	public function getSale($idProduct, $saleDate){
+		$this->getSale->execute(array($idProduct, $saleDate));
+		$tab = $this->getSale->fetchAll();
+		
+		if(empty($tab)){
+			return null;
+		}
+		else{
+			return $tab[0];
 		}
 	}
 

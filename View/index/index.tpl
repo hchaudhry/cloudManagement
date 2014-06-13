@@ -26,7 +26,7 @@
 								echo "<td>".$product['reference']."</td>";
 								echo "<td style='width: 248px;'>".$product['name']."</td>";
 								echo "<td style='width: 236px;'>".$product['quantity']."</td>";
-								echo "<td style='width: 202px;' class='header'><a class='btn btn-small delete-line header'><i class='icon-trash header'></i></a></td>";
+								echo "<td style='width: 202px;' class='header'><a class='btn btn-small delete-line header'><i class='icon-trash header'></i></a> <a class='btn btn-small stats-line header'><i class='icon-signal header'></i></a></td>";
 							echo "</tr>";
 						endforeach; ?>
 					</table>

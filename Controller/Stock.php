@@ -29,8 +29,18 @@ class Controller_Stock extends Controller_Template{
 		$title = "Cloud Management";
 		
 		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
-
+		
 		$stock = $this->selfModel->addProduct($reference, $nom, $commentaire, $quantite, $prix, $seuil, $seuilactif);
+		
+		$stockId = $this->selfModel->getLastId();
+		
+		$sale = $this->selfModel->getSale($stockId['id'], date('Y-m-d'));
+		
+		if ($sale == null) {
+			$saleAdd = $this->selfModel->addInSale($stockId['id'], $quantite, date('Y-m-d'));
+		}else{
+			$saleUpdate = $this->selfModel->updateSale($stockId['id'], $quantite, $sale['saleDate']);
+		}
 		
 		header('Location: index.php?module=indexStock');
 	}
@@ -57,8 +67,12 @@ class Controller_Stock extends Controller_Template{
 		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
 		
 		$product = $this->selfModel->updateProduct($id, $reference, $nom, $commentaire, $quantite, $prix, $seuil, $seuilactif);
-
+		
 		$stock = $this->selfModel->getProduct($id);
+		
+		$sale = $this->selfModel->getSale($id, date('Y-m-d'));
+		
+		$saleUpdate = $this->selfModel->updateSale($id, $quantite, $sale['saleDate']);
 
 		require 'View/header.tpl';
 		require 'View/Stock/ajouteStock.tpl';
@@ -109,14 +123,17 @@ class Controller_Stock extends Controller_Template{
 		require 'View/footer.tpl';
 	}
 	
-	public function getProductForStats($id){
+	public function getProductForStats($id, $beginDate, $endDate){
 		$title = "Cloud Management";
 		
 		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
 		
-		$stock = $this->selfModel->getProductForStats($id);
+		$stock = $this->selfModel->getProductForStats($id, $beginDate, $endDate);
+		$stockInfo = $this->selfModel->getProduct($id);
 		
-		echo $stock;
+		require 'View/header.tpl';
+		require 'View/Stock/productStats.tpl';
+		require 'View/footer.tpl';
 	}
 	
 	public function statsView(){

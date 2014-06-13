@@ -20,7 +20,7 @@ spl_autoload_register('generic_autoload');
 
 
 // Instanciation de la connexion à la BDD
-Controller_Template::$db = new MyPDO('mysql:host=localhost;dbname=gestionstock', 'root', '');
+Controller_Template::$db = new MyPDO('mysql:host=localhost;dbname=gestionstock', 'root', 'demo');
 
 
 // GESTION UTILISATEUR
@@ -169,7 +169,9 @@ else{
 		
 		case 'getProductForStats':
 			$controller = Controller_Stock::getInstance('Stock');
-			$controller->getProductForStats(89);
+			
+			
+			$controller->getProductForStats($_GET['id'], $_GET['beginDate'], $_GET['endDate']);
 		break;
 		
 		case 'statsView':

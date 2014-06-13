@@ -1,9 +1,10 @@
+	<div class="span12">
 	<form id="productForm" action="index.php?module=addStock" method="POST">
 		<table id="productAdd">
 			<?php if(empty($stock['id'])){ 
-				 		echo "<input type='hidden' name='id'>";
+				 		echo "<input type='hidden' name='id' id='num' >";
 					}else{
-						echo "<input type='hidden' name='id' value=".$stock['id'].">";
+						echo "<input type='hidden' name='id' id='num' value=".$stock['id'].">";
 					}
 			?>
 			<tr>
@@ -93,4 +94,6 @@
 			</tr>
 		</table>
 	</form>
+	</div>
+	
 	<br><br><br><br><br><br><br><br><br>
