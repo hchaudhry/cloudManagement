@@ -8,7 +8,7 @@ echo '<table id="page-table">
 	<tr>
 		<td id="page-td">	
 			<div id="global">
-			<table class="table table-striped table-bordered">
+			<table id ="clientTable" class="table table-striped table-bordered">
 			<tr class="header">
 				<td>Nom</td>
 				<td>Société</td>

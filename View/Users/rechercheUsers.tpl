@@ -2,12 +2,13 @@
 if ($requeteRechercher == null) {
 echo "Aucun résultat ne correspond à votre demande";
 echo '<input type="button" value="< Retour" onclick="self.location.href=\'index.php?module=listUsers\'" />';
+
 }else {
 echo '<table id="page-table">
 	<tr>
 		<td id="page-td">	
 			<div id="global">
-			<table class="table table-striped table-bordered">
+			<table id ="usersTable" class="table table-striped table-bordered">
 			<tr class="header">
 				<td>Nom</td>
 				<td>Prénom</td>

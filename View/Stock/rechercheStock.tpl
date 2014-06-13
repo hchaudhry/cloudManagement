@@ -2,6 +2,7 @@
 if ($requeteRechercher == null) {
 echo "Aucun résultat ne correspond à votre demande";
 echo '<tr><input type="button" value="< Retour" onclick="self.location.href=\'index.php?module=indexStock\'" /></tr>';
+
 }else {
 echo '<table id="page-table">
 	<tr>
