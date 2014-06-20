@@ -2,8 +2,15 @@
 	<div class="row">
 		 <form id="clientForm" class="form-horizontal" action="index.php?module=addClient" method="post">
             <fieldset>
-         
-                <h3>Ajout de client</h3>
+            <div id="legend">
+      
+    			<?php if(empty($client)){ 
+          			echo "<legend>Ajout d'un client</legend>";
+          			}else{
+            		echo "<legend>Modification d'un client</legend>";
+          			}		
+    			?>
+    		</div>
 
                 <?php if(empty($client['id'])){ 
                         echo "<input type='hidden' name='id'>";

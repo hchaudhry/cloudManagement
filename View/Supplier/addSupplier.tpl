@@ -2,8 +2,15 @@
 	<div class="row">
 		 <form id="supplierForm" class="form-horizontal" action="index.php?module=addSupplier" method="post">
             <fieldset>
-         
-                <h3>Ajout de fournisseur</h3>
+                <div id="legend">
+      
+    			<?php if(empty($supplier)){ 
+          			echo "<legend>Ajout d'un fournisseur</legend>";
+          			}else{
+            		echo "<legend>Modification d'un fournisseur</legend>";
+          			}		
+    			?>
+    			</div>
 
                 <?php if(empty($supplier['id'])){ 
                         echo "<input type='hidden' name='id'>";
