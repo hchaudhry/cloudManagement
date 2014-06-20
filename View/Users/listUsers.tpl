@@ -1,6 +1,7 @@
 <table id="page-table">
 	<tr>
-		<td id="page-td">	
+		<td id="page-td">
+			<h3 id="titre-user">Liste des utilisateurs</h3>	
 			<div id="global">
 				<div id="line-haut">
 					<input class="btn btn-primary" id="add-btn" type="button" value="Nouvelle utilisateur" onclick="self.location.href='index.php?module=ajoutUser'" />
@@ -26,7 +27,7 @@
 								echo "<td>".$oneUser['lastname']."</td>";
 								echo "<td style='width: 160px;'>".$oneUser['firstname']."</td>";
 								echo "<td style='width: 447px;'>".$oneUser['email']."</td>";
-								echo "<td style='width: 125px;' class='header'><a class='btn btn-small delete-user header'><i class='icon-trash header'></i></a></td>";
+								echo "<td style='width: 125px;' class='header'><a class='btn btn-small delete-user header' title='Supprimer'><i class='icon-trash header'></i></a></td>";
 							echo "</tr>";
 						endforeach; ?>
 					</table>

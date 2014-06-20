@@ -1,6 +1,7 @@
 <table id="page-table">
 	<tr>
-		<td id="page-td">	
+		<td id="page-td">
+			<h3 id="titre-produit">Liste des produits</h3>	
 			<div id="global">
 				<div id="line-haut">
 					<input class="btn btn-primary" id="add-btn" type="button" value="Nouvelle Entrée" onclick="self.location.href='index.php?module=ajouteStock'" />
@@ -26,7 +27,7 @@
 								echo "<td>".$product['reference']."</td>";
 								echo "<td style='width: 248px;'>".$product['name']."</td>";
 								echo "<td style='width: 236px;'>".$product['quantity']."</td>";
-								echo "<td style='width: 202px;' class='header'><a class='btn btn-small delete-line header'><i class='icon-trash header'></i></a> <a class='btn btn-small stats-line header'><i class='icon-signal header'></i></a></td>";
+								echo "<td style='width: 202px;' class='header'><a class='btn btn-small delete-line header' title='Supprimer'><i class='icon-trash header'></i></a> <a class='btn btn-small stats-line header' title='Statistique'><i class='icon-signal header'></i></a></td>";
 							echo "</tr>";
 						endforeach; ?>
 					</table>

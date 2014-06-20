@@ -1,6 +1,7 @@
 <table id="page-table">
 	<tr>
-		<td id="page-td">	
+		<td id="page-td">
+			<h3 id="titre-client">Liste des clients</h3>	
 			<div id="global">
 				<div id="line-haut">
 					<input class="btn btn-primary" id="add-btn" type="button" value="Nouveau client" onclick="self.location.href='index.php?module=ajouteClient'" />
@@ -26,7 +27,7 @@
 								echo "<td>".$oneClient['name']."</td>";
 								echo "<td style='width: 149px;'>".$oneClient['society']."</td>";
 								echo "<td style='width: 149px;'>".$oneClient['phone']."</td>";
-								echo "<td style='width: 344px;' class='header'><a class='btn btn-small delete-client header'><i class='icon-trash header'></i></a></td>";
+								echo "<td style='width: 344px;' class='header'><a class='btn btn-small delete-client header' title='Supprimer'><i class='icon-trash header'></i></a></td>";
 							echo "</tr>";
 						endforeach; ?>
 					</table>

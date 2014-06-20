@@ -16,7 +16,7 @@
           }
     ?>
     <div class="control-group">
-      <label class="control-label"  for="lastname">Nom</label>
+      <label class="control-label"  for="lastname">Nom <span class="star-color">*</span></label>
       <div class="controls">
         <?php if(empty($user['lastname'])){ 
           	echo "<input type='text' id='lastname' name='lastname' class='input-xlarge'>";
@@ -28,7 +28,7 @@
     </div>
  
     <div class="control-group">
-      <label class="control-label" for="firstname">Prénom</label>
+      <label class="control-label" for="firstname">Prénom <span class="star-color">*</span></label>
       <div class="controls">
         <?php if(empty($user['firstname'])){ 
           	echo "<input type='text' id='firstname' name='firstname' class='input-xlarge'>";
@@ -40,7 +40,7 @@
     </div>
     
     <div class="control-group">
-      <label class="control-label"  for="username">Login</label>
+      <label class="control-label"  for="username">Login <span class="star-color">*</span></label>
       <div class="controls">
         <?php if(empty($user['login'])){ 
           	echo "<input type='text' id='login' name='login' class='input-xlarge'>";
@@ -52,7 +52,7 @@
     </div>
  
     <div class="control-group">
-      <label class="control-label" for="email">E-mail</label>
+      <label class="control-label" for="email">E-mail <span class="star-color">*</span></label>
       <div class="controls">
         <?php if(empty($user['email'])){ 
           	echo "<input type='text' id='email' name='email' class='input-xlarge'>";
@@ -64,14 +64,14 @@
     </div>
  
     <div class="control-group">
-      <label class="control-label" for="password">Mot de passe</label>
+      <label class="control-label" for="password">Mot de passe <span class="star-color">*</span></label>
       <div class="controls">
         <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
       </div>
     </div>
  
     <div class="control-group">
-      <label class="control-label"  for="password_confirm">Mot de passe (Confirmation)</label>
+      <label class="control-label"  for="password_confirm">Mot de passe (Confirmation) <span class="star-color">*</span></label>
       <div class="controls">
         <input type="password" id="password_confirm" name="passwordconfirm" placeholder="" class="input-xlarge">
       </div>
@@ -90,6 +90,8 @@
 			</label>
 		</div>
 	</div>
+	
+	<span class="span2"><span class="star-color">*</span> : Champ obligatoire</span>
 
 	<div class="control-group">
       <div class="controls">

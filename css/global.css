@@ -30,7 +30,23 @@ div#global {
 	box-shadow: 0 0 10px #E7E6E4;
 	margin: 20px auto;
 	text-align: left;
-	padding-top: 75px;
+	padding-top: 10px;
+}
+
+#titre-page{
+	margin-left: -742px;
+}
+
+#titre-client{
+	margin-left: -805px;
+}
+
+#titre-produit{
+	margin-left: -780px;
+}
+
+#titre-user{
+	margin-left: -750px;
 }
 
 div#login {
@@ -43,7 +59,6 @@ div#login {
 }
 
 form {
-	color: black;
 	margin: 20px;
 	vertical-align: middle;
 }
@@ -108,4 +123,8 @@ img#logo {
 	margin-right: auto;
 	width: 297px;
 	position: relative;
+}
+
+.star-color{
+	color: #DF0101;
 }
