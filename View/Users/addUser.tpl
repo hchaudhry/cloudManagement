@@ -1,4 +1,6 @@
-<form id="userForm" class="form-horizontal" action='index.php?module=addUser' method="POST">
+<div class="span5 offset3 container">
+	<div class="row">
+		<form id="userForm" class="form-horizontal" action='index.php?module=addUser' method="POST">
   <fieldset>
     <div id="legend">
       
@@ -6,7 +8,7 @@
           	echo "<legend>Ajout d'un utilisateur</legend>";
           }else{
             echo "<legend>Modification d'un utilisateur</legend>";
-          }
+          }		
     ?>
     </div>
     <?php if(empty($user['id'])){ 
@@ -98,3 +100,6 @@
     </div>
   </fieldset>
 </form>
+
+	</div>
+</div>	
