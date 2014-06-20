@@ -21,7 +21,7 @@
 			?>
 			
 			<div class="control-group">
-                    <label class="control-label">Référence</label>
+                    <label class="control-label">Référence <span class="star-color">*</span></label>
                     <div class="controls">
 						<?php if(empty($stock['reference'])){ 
 				 			echo "<input type=text name='ref' class='input-xlarge'>";
@@ -34,7 +34,7 @@
              </div>
              
              <div class="control-group">
-                    <label class="control-label">Nom</label>
+                    <label class="control-label">Nom <span class="star-color">*</span></label>
                     <div class="controls">
 						<?php if(empty($stock['name'])){ 
 				 			echo "<input type=text name='nom' class='input-xlarge'>";
@@ -47,7 +47,7 @@
              </div>
              
              <div class="control-group">
-                    <label class="control-label">Description</label>
+                    <label class="control-label">Description <span class="star-color">*</span></label>
                     <div class="controls">
 						<?php if(empty($stock['description'])){ 
 				 			echo "<TEXTAREA rows='3' name='commentaires' class='input-xlarge'></TEXTAREA>";
@@ -60,7 +60,7 @@
              </div>
              
              <div class="control-group">
-                    <label class="control-label">Fournisseur</label>
+                    <label class="control-label">Fournisseur <span class="star-color">*</span></label>
                     <div class="controls">
 				 			<SELECT name="fourni" class='input-xlarge'>
 								<option value="fourni1"> Fourni 1 </option>
@@ -72,7 +72,7 @@
              </div>
              
              <div class="control-group">
-                    <label class="control-label">Quantité disponible</label>
+                    <label class="control-label">Quantité disponible <span class="star-color">*</span></label>
                     <div class="controls">
 						<?php if(empty($stock['quantity'])){ 
 				 			echo "<input type=text name='qte' class='input-xlarge'>";
@@ -85,7 +85,7 @@
              </div>
 			
 			<div class="control-group">
-                    <label class="control-label">Prix</label>
+                    <label class="control-label">Prix <span class="star-color">*</span></label>
                     <div class="controls">
 						<?php if(empty($stock['price'])){ 
 				 			echo "<input type=text name='prix' class='input-xlarge'>";
@@ -124,7 +124,7 @@
              </div>
              
              <div class="control-group">
-                    <label class="control-label">Client</label>
+                    <label class="control-label">Client <span class="star-color">*</span></label>
                     <div class="controls">
 				 			<SELECT name="client" class='input-xlarge'>
 								<option value="client1"> Client 1 </option>
@@ -134,6 +134,7 @@
 						<p class="help-block"></p>
                     </div>
              </div>
+             <span class="span2"><span class="star-color">*</span> : Champ obligatoire</span>
 			
 			<div class="span3 offset2">
                     <button type="button" class="btn btn-danger">Annuler</button>
