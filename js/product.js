@@ -40,6 +40,10 @@ $(document).ready(function(){
 		console.log(beginDate + ' ' + endDate);
 		window.location = 'index.php?module=getProductForStats&beginDate='+ beginDate + '&endDate=' + endDate + '&id=' + id;
 	});
+	
+	$('.supcli-btn').click(function() {
+		window.location = 'index.php?module=SuppliersClients&id='+ $(this).parents().find('input').val();
+	});
 
 });
 

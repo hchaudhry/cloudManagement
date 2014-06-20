@@ -20,7 +20,7 @@ spl_autoload_register('generic_autoload');
 
 
 // Instanciation de la connexion à la BDD
-Controller_Template::$db = new MyPDO('mysql:host=localhost;dbname=gestionstock', 'root', '');
+Controller_Template::$db = new MyPDO('mysql:host=localhost;dbname=gestionstock', 'root', 'demo');
 
 
 // GESTION UTILISATEUR
@@ -177,6 +177,37 @@ else{
 		case 'statsView':
 			$controller = Controller_Stock::getInstance('Stock');
 			$controller->statsView();
+		break;
+		
+		case 'SuppliersClients':
+			$controller = Controller_Stock::getInstance('Stock');
+			$controller->getSuppliersAndClients($_GET['id']);
+		break;
+		
+		case 'deleteClientForProduct':
+			$controller = Controller_Stock::getInstance('Stock');
+		
+			if(!isset($_GET['idClient']) || !isset($_GET['productId'])) return $controller->getAllProduct();
+		
+			$controller->deleteProductClient($_GET['idClient'], $_GET['productId']);
+		break;
+		
+		case 'deleteSupplierForProduct':
+			$controller = Controller_Stock::getInstance('Stock');
+		
+			if(!isset($_GET['idSupplier']) || !isset($_GET['productId'])) return $controller->getAllProduct();
+		
+			$controller->deleteProductSupplier($_GET['idSupplier'], $_GET['productId']);
+		break;
+		
+		case 'addProductClient':
+			$controller = Controller_Stock::getInstance('Stock');
+			$controller->addProductClient($_GET['idProduct'], $_GET['idClient']);	
+		break;
+		
+		case 'addProductSupplier':
+			$controller = Controller_Stock::getInstance('Stock');
+			$controller->addProductSupplier($_GET['idProduct'], $_GET['idSupplier']);
 		break;
 
 		// Client

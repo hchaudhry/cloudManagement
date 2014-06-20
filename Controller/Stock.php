@@ -147,5 +147,72 @@ class Controller_Stock extends Controller_Template{
 		require 'View/footer.tpl';
 	}
 	
+	public function getSuppliersAndClients($id){
+		$title = "Cloud Management";
+		
+		if(Controller_Index::connected()) return require 'View/Users/connexion.tpl';
+		
+		$productClientsModel = new Model_ProductClients();
+		$produtClients = $productClientsModel->getProductClients($id);
+		
+		if(!empty($produtClients)){
+			$oneClient = new Model_Client();
+			foreach ($produtClients as $one){
+				$tabClients[] = $oneClient->getClient($one['id_client']);
+			}	
+		}
+		
+		$productSuppliersModel = new Model_ProductSuppliers();
+		$produtSuppliers = $productSuppliersModel->getProductSuppliers($id);
+		
+		if(!empty($produtSuppliers)){
+			$oneSupplier = new Model_Supplier();
+			foreach ($produtSuppliers as $one){
+				$tabSuppliers[] = $oneSupplier->getSupplier($one['id_supplier']);
+			}	
+		}
+		
+		$clients = new Model_Client();
+		$clients = $clients->getAllClient();
+		
+		$suppliers = new Model_Supplier();
+		$suppliers = $suppliers->getAllSupplier();
+		
+		$product = $this->selfModel->getProduct($id);
+		
+		header('Content-Type: text/html; charset=utf-8');
+		require 'View/header.tpl';
+		require 'View/Stock/supcli.tpl';
+		require 'View/footer.tpl';
+	}
+	
+	public function deleteProductClient($idClient, $productId){
+		$productClientsModel = new Model_ProductClients();
+		$produtClients = $productClientsModel->deleteProductClient($idClient, $productId);
+		
+		header('Location: index.php?module=SuppliersClients&id='.$productId);
+	}
+	
+	public function deleteProductSupplier($id, $productId){
+		$productSupplierModel = new Model_ProductSuppliers();
+		$produtSupplier = $productSupplierModel->deleteProductSupplier($id, $productId);
+	
+		header('Location: index.php?module=SuppliersClients&id='.$productId);
+	}
+	
+	public function addProductClient($idProduct, $idClient){
+		$productClientsModel = new Model_ProductClients();
+		$produtClient = $productClientsModel->addProductClient($idProduct, $idClient);
+		
+		header('Location: index.php?module=SuppliersClients&id='.$idProduct);
+	}
+	
+	public function addProductSupplier($idProduct, $idSupplier){
+		$productSuppliersModel = new Model_ProductSuppliers();
+		$produtSupplier = $productSuppliersModel->addProductSupplier($idProduct, $idSupplier);
+	
+		header('Location: index.php?module=SuppliersClients&id='.$idProduct);
+	}
+	
 }
 

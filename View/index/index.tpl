@@ -27,7 +27,7 @@
 								echo "<td>".$product['reference']."</td>";
 								echo "<td style='width: 248px;'>".$product['name']."</td>";
 								echo "<td style='width: 236px;'>".$product['quantity']."</td>";
-								echo "<td style='width: 202px;' class='header'><a class='btn btn-small delete-line header' title='Supprimer'><i class='icon-trash header'></i></a> <a class='btn btn-small stats-line header' title='Statistique'><i class='icon-signal header'></i></a></td>";
+								echo "<td style='width: 202px;' class='header'><a class='btn btn-small delete-line header' title='Supprimer'><i class='icon-trash header'></i></a> <a class='btn btn-small stats-line header' title='Statistique'><i class='icon-signal header'></i></a> <a class='btn btn-small supcli-btn header' title='Fournisseurs/Clients'><i class='icon-th-list header'></i></a></td>";
 							echo "</tr>";
 						endforeach; ?>
 					</table>
@@ -39,6 +39,8 @@
 	</tr>
 </table>
 </div>
+
+<script type="text/javascript" src="js/product.js"></script>
 
 <script type="text/javascript">
 	//mind the slight change below, personal idea of best practices

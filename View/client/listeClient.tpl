@@ -39,6 +39,7 @@
 </table>
 </div>
 
+<script type="text/javascript" src="js/client.js"></script>
 <script type="text/javascript">
 	//mind the slight change below, personal idea of best practices
 	jQuery(function($) {

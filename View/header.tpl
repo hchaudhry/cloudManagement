@@ -18,11 +18,7 @@
 		</style>
 
 		<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
-		<script type="text/javascript" src="js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/product.js"></script>
-		<script type="text/javascript" src="js/client.js"></script>
-		<script type="text/javascript" src="js/user.js"></script>	
-		<script type="text/javascript" src="js/supplier.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>	
 		<script type="text/javascript" src="js/simplePagination/jquery.simplePagination.js"></script>	
 		<script type="text/javascript" src="js/jquery-validation.js"></script>
 		

@@ -59,17 +59,17 @@
                     </div>
              </div>
              
-             <div class="control-group">
-                    <label class="control-label">Fournisseur</label>
-                    <div class="controls">
-				 			<SELECT name="fourni" class='input-xlarge'>
-								<option value="fourni1"> Fourni 1 </option>
-								<option value="fourni2"> Fourni 2 </option>
-								<option value="fourni3"> Fourni 3 </option>
-							</SELECT>
-						<p class="help-block"></p>
-                    </div>
-             </div>
+<!--              <div class="control-group"> -->
+<!--                     <label class="control-label">Fournisseur</label> -->
+<!--                     <div class="controls"> -->
+<!-- 				 			<SELECT name="fourni" class='input-xlarge'> -->
+<!-- 								<option value="fourni1"> Fourni 1 </option> -->
+<!-- 								<option value="fourni2"> Fourni 2 </option> -->
+<!-- 								<option value="fourni3"> Fourni 3 </option> -->
+<!-- 							</SELECT> -->
+<!-- 						<p class="help-block"></p> -->
+<!--                     </div> -->
+<!--              </div> -->
              
              <div class="control-group">
                     <label class="control-label">Quantité disponible</label>
@@ -95,7 +95,7 @@
 						?>
 						<p class="help-block"></p>
                     </div>
-             </div>
+            </div>
 			
 			<div class="control-group">
                     <label class="control-label">Seuil d'alerte actif</label>
@@ -123,22 +123,21 @@
                     </div>
              </div>
              
-             <div class="control-group">
-                    <label class="control-label">Client</label>
-                    <div class="controls">
-				 			<SELECT name="client" class='input-xlarge'>
-								<option value="client1"> Client 1 </option>
-								<option value="client2"> Client 2 </option>
-								<option value="client3"> Client 3 </option>
-							</SELECT>
-						<p class="help-block"></p>
-                    </div>
-             </div>
-			
+<!--              <div class="control-group"> -->
+<!--                     <label class="control-label">Client</label> -->
+<!--                     <div class="controls"> -->
+<!-- 				 			<SELECT name="client" class='input-xlarge'> -->
+<!-- 								<option value="client1"> Client 1 </option> -->
+<!-- 								<option value="client2"> Client 2 </option> -->
+<!-- 								<option value="client3"> Client 3 </option> -->
+<!-- 							</SELECT> -->
+<!-- 						<p class="help-block"></p> -->
+<!--                     </div> -->
+<!--              </div> -->
 			<div class="span3 offset2">
-                    <button type="button" class="btn btn-danger">Annuler</button>
-                    <button type="submit" class="btn btn-success">Valider</button>
-                </div>
+	            <button type="button" class="btn btn-danger">Annuler</button>
+	            <button type="submit" class="btn btn-success">Valider</button>
+            </div>
 		</fieldset>
         </form>
 	</div>

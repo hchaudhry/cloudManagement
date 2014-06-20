@@ -128,3 +128,15 @@ img#logo {
 .star-color{
 	color: #DF0101;
 }
+
+#addSupplier, #addClient{
+	margin-top: -11px;
+}
+
+.addingBlock{
+	margin-left: 80px;
+}
+
+.pageTitle{
+	margin-top: -10px;
+}
