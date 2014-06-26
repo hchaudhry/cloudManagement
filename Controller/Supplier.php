@@ -81,7 +81,7 @@ class Controller_Supplier extends Controller_Template{
 		
 		$supplierToDelete = $this->selfModel->deleteSupplier($id);
 		
-		header('Location: index.php?module=listeFournisseur');
+		header('Location: index.php?module=listeSupplier');
 	}	
 	
 	public function rechercheSupplier($rechercher) {

@@ -27,7 +27,7 @@
 								echo "<td>".$oneSupplier['name']."</td>";
 								echo "<td style='width: 189px;'>".$oneSupplier['society']."</td>";
 								echo "<td style='width: 268px;'>".$oneSupplier['phone']."</td>";
-								echo "<td style='width: 264px;' class='header'><a class='btn btn-small delete-client header' title='Supprimer'><i class='icon-trash header'></i></a></td>";
+								echo "<td style='width: 264px;' class='header'><a class='btn btn-small delete-supplier header' title='Supprimer'><i class='icon-trash header'></i></a></td>";
 							echo "</tr>";
 						endforeach; ?>
 					</table>
