@@ -25,7 +25,7 @@
                         <?php if(empty($supplier['name'])){ 
                                 echo "<input id='nom' name='nom' type='text' placeholder='Nom' class='input-xlarge'>";
                             }else{
-                                echo "<input id='nom' name='nom' type='text' placeholder='Nom' class='input-xlarge' value=".$supplier['name'].">";
+                                echo "<input id='nom' name='nom' type='text' placeholder='Nom' class='input-xlarge' value='".$supplier['name']."'>";
                             }
                         ?>
                         <p class="help-block"></p>
@@ -38,7 +38,7 @@
                         <?php if(empty($supplier['society'])){ 
                                 echo "<input id='societe' name='societe' type='text' placeholder='Société' class='input-xlarge'>";
                             }else{
-                                echo "<input id='societe' name='societe' type='text' placeholder='Société' class='input-xlarge' value=".$supplier['society'].">";
+                                echo "<input id='societe' name='societe' type='text' placeholder='Société' class='input-xlarge' value='".$supplier['society']."'>";
                             }
                         ?>
                         <p class="help-block"></p>
@@ -51,7 +51,7 @@
                         <?php if(empty($supplier['society'])){ 
                                 echo "<input id='adresse' name='adresse' type='text' placeholder='adresse' class='input-xlarge'>";
                             }else{
-                                echo "<input id='adresse' name='adresse' type='text' placeholder='adresse' class='input-xlarge' value=".$supplier['adress'].">";
+                                echo "<input id='adresse' name='adresse' type='text' placeholder='adresse' class='input-xlarge' value='". $supplier['adress'] ."'>";
                             }
                         ?>
                         <p class="help-block"></p>
@@ -64,7 +64,7 @@
                         <?php if(empty($supplier['city'])){ 
                                 echo "<input id='ville' name='ville' type='text' placeholder='Ville' class='input-xlarge'>";
                             }else{
-                                echo "<input id='ville' name='ville' type='text' placeholder='Ville' class='input-xlarge' value=".$supplier['city'].">";
+                                echo "<input id='ville' name='ville' type='text' placeholder='Ville' class='input-xlarge' value='".$supplier['city']."'>";
                             }
                         ?>
                         <p class="help-block"></p>

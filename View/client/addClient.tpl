@@ -25,7 +25,7 @@
                         <?php if(empty($client['name'])){ 
                                 echo "<input id='nom' name='nom' type='text' placeholder='Nom' class='input-xlarge'>";
                             }else{
-                                echo "<input id='nom' name='nom' type='text' placeholder='Nom' class='input-xlarge' value=".$client['name'].">";
+                                echo "<input id='nom' name='nom' type='text' placeholder='Nom' class='input-xlarge' value='".$client['name']."'>";
                             }
                         ?>
                         <p class="help-block"></p>
@@ -38,7 +38,7 @@
                         <?php if(empty($client['society'])){ 
                                 echo "<input id='societe' name='societe' type='text' placeholder='Société' class='input-xlarge'>";
                             }else{
-                                echo "<input id='societe' name='societe' type='text' placeholder='Société' class='input-xlarge' value=".$client['society'].">";
+                                echo "<input id='societe' name='societe' type='text' placeholder='Société' class='input-xlarge' value='".$client['society']."'>";
                             }
                         ?>
                         <p class="help-block"></p>
@@ -51,7 +51,7 @@
                         <?php if(empty($client['society'])){ 
                                 echo "<input id='adresse' name='adresse' type='text' placeholder='adresse' class='input-xlarge'>";
                             }else{
-                                echo "<input id='adresse' name='adresse' type='text' placeholder='adresse' class='input-xlarge' value=".$client['adress'].">";
+                                echo "<input id='adresse' name='adresse' type='text' placeholder='adresse' class='input-xlarge' value='".$client['adress']."'>";
                             }
                         ?>
                         <p class="help-block"></p>
