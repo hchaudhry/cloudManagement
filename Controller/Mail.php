@@ -17,7 +17,7 @@ class Controller_Mail extends Controller_Template{
 		$usersMails = new Model_Users();
 		$usersMails = $usersMails->getMailOfAllUsersInfos();
 	
-		$subject = 'Cloud Management';
+		$subject = 'Cloud Management - Alerte';
 		$messages;
 		$message = '';
 		$headers = 'From: chaudhry.hussam@gmail.com' . "\r\n" .
@@ -30,7 +30,7 @@ class Controller_Mail extends Controller_Template{
 		$messages = $message;
 		
 		foreach ($usersMails as $oneMail) {
-			echo $oneMail['email'];
+// 			return var_dump($messages);
 			$sentmail = mail($oneMail['email'], $subject, $message, $headers);
 		}
 	}

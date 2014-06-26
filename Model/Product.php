@@ -20,7 +20,7 @@ class Model_Product extends Model_Template{
 		$sql = 'DELETE FROM product WHERE id = ?';
 		$this->deleteProduct = Controller_Template::$db->prepare($sql);
 		
-		$sql = 'SELECT id, reference, name FROM product WHERE quantity = seuil AND seuil_active = 1';
+		$sql = 'SELECT id, reference, name FROM product WHERE quantity <= seuil_value AND seuil_active = 1';
 		$this->getQuantityEqualLimit = Controller_Template::$db->prepare($sql);
 		
 		$sql = 'select * FROM product WHERE reference = ? or name = ? or quantity = ?';
