@@ -49,6 +49,7 @@
 <link media="screen" href="css/visualize-light.css" type="text/css" rel="stylesheet" />
 <link media="screen" href="js/bootstrap-datepicker/css/datepicker.css" type="text/css" rel="stylesheet" />
 
+<script type="text/javascript" src="js/product.js"></script>
 <script type="text/javascript" src="js/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 <script type="text/javascript" src="js/bootstrap-datepicker/js/locales/bootstrap-datepicker.fr.js"></script>
 <script type="text/javascript" src="js/excanvas.js"></script>
