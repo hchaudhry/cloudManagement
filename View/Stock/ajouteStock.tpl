@@ -135,6 +135,8 @@
 <!--                     </div> -->
 <!--              </div> -->
 
+			<span class="span2"><span class="star-color">*</span> : Champ obligatoire</span>
+
 			<div class="span3 offset2">
 	            <button type="button" class="btn btn-danger">Annuler</button>
 	            <button type="submit" class="btn btn-success">Valider</button>
